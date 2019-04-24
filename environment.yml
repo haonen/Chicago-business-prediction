@@ -1,0 +1,5 @@
+name: final_env
+channels:
+  - defaults
+prefix: /home/student/ml_hws/envs/final_env
+
