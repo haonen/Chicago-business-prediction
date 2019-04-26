@@ -9,7 +9,6 @@ import datetime as dt
 from census import Census
 from us import states
 
-
 def get_311(start_year, end_year):
     '''
     Get 2012 and 2017 311 data from chicago data portal
@@ -26,7 +25,6 @@ def get_311(start_year, end_year):
                  'zip_code': float,
                  'longitude': float,
                  'lattitude': int} 
-
     DATA_ID = "v6vf-nfxy"
     cols = [item for item in COL_TYPES.keys()]
     client = Socrata('data.cityofchicago.org', 
@@ -57,10 +55,9 @@ def get_acs_data(start_year, end_year):
     NAMES_DIC = {'B01001_001E': "population", 
              'B19013_001E': "median_household_income", 
              'B19083_001E': "gini_index", 
-             'DP03_0009E': "unemployment_rate", 
              'B992701_002E': "health_coverage_population",
              'B07012_005E': 'same_house_one_year_ago',
-             'S1701_C03_046E':'poverty_rate'}  
+             'B10059_002E': 'income_in_the past_12_months_below_poverty_rate'}  
     c = Census('3eb1575454b4de2cf12e0072bd946ecb852579d2')
     lst_df = []
 
@@ -69,10 +66,9 @@ def get_acs_data(start_year, end_year):
                    'B01001_001E',
                    'B19013_001E',
                    'B19083_001E',
-                   #'DP03_0009E',
                    'B992701_002E',
                    'B07012_005E',
-                   #'S1701_C03_046E'
+                   'B10059_002E'
                    ),
                    {'for': 'block group',
                    'in': 'state: {} county: {}'.format('17','031')},
@@ -84,3 +80,39 @@ def get_acs_data(start_year, end_year):
         df['year'] = item
         lst_df.append(df)
     return pd.concat(lst_df)
+
+def get_crime(start_year, end_year):
+    '''
+    Get 2013 to 2018 crime data from chicago data portal
+
+    Return:
+        pandas dataframe with the columns and dtypes as COL_TYPES
+    '''
+    crime_type = ['HOMICIDE','CRIM SEXUAL ASSAULT',
+                  'ROBBERY','ASSAULT','BATTERY',
+                  'BURGLARY','ARSON', 'MOTOR VEHICLE THEFT',
+                  'THEFT']
+    COL_TYPES = {'block': str, 
+                 'case_number': str,
+                 'primary_type': 'category',
+                 'date': str,
+                 'latitude': float,
+                 'longitude': float,
+                 'year': int}
+    MAX_ROWS = 6839451 # the total rows of the original data
+    CRIME_DATA_ID = "6zsd-86xi"
+    cols = [item for item in COL_TYPES.keys()]
+    client = Socrata('data.cityofchicago.org',
+                     'Lfkp6VmeW3p5ePTv0GhNSmrWh',
+                     username='pengwei@uchciago.edu',
+                     password='2h1m@k@1men')
+    conds = "year <= {} and year <= {}".format(start_year,end_year)
+    res = client.get(CRIME_DATA_ID, 
+                     select=",".join(cols),
+                     where= conds,
+                     limit = MAX_ROWS)
+    client.close()
+    df = pd.DataFrame.from_records(res)
+    df = df[df['primary_type'].isin({'primary_type': crime_type})]
+    df['date'] = pd.to_datetime(df['date'])
+    return df
