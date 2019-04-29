@@ -77,7 +77,6 @@ def get_acs_data(start_year, end_year):
         df['geoid'] = df["state"] + df["county"] + df["tract"]
         df['year'] = item
         lst_df.append(df)
-    pdb.set_trace()
     return pd.concat(lst_df)
 
 def get_crime(start_year, end_year):
