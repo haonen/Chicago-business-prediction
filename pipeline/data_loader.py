@@ -8,6 +8,7 @@ import numpy as np
 import datetime as dt
 from census import Census
 from us import states
+import pdb
 
 def get_311(start_year, end_year):
     '''
@@ -79,6 +80,7 @@ def get_acs_data(start_year, end_year):
         df['geoid'] = df["state"] + df["county"] + df["tract"]
         df['year'] = item
         lst_df.append(df)
+    pdb.set_trace()
     return pd.concat(lst_df)
 
 def get_crime(start_year, end_year):
@@ -88,10 +90,14 @@ def get_crime(start_year, end_year):
     Return:
         pandas dataframe with the columns and dtypes as COL_TYPES
     '''
-    crime_type = ['HOMICIDE','CRIM SEXUAL ASSAULT',
-                  'ROBBERY','ASSAULT','BATTERY',
-                  'BURGLARY','ARSON', 'MOTOR VEHICLE THEFT',
-                  'THEFT']
+    crime_type = ["HOMICIDE",
+                  "CRIM SEXUAL ASSAULT",
+                  "ROBBERY","ASSAULT",
+                  "BATTERY",
+                  "BURGLARY",
+                  "ARSON", 
+                  "MOTOR VEHICLE THEFT",
+                  "THEFT"]
     COL_TYPES = {'block': str, 
                  'case_number': str,
                  'primary_type': 'category',
@@ -106,13 +112,13 @@ def get_crime(start_year, end_year):
                      'Lfkp6VmeW3p5ePTv0GhNSmrWh',
                      username='pengwei@uchciago.edu',
                      password='2h1m@k@1men')
-    conds = "year <= {} and year <= {}".format(start_year,end_year)
+    conds = "year >= {} AND year <= {}".format(start_year, end_year)
     res = client.get(CRIME_DATA_ID, 
                      select=",".join(cols),
                      where= conds,
                      limit = MAX_ROWS)
     client.close()
     df = pd.DataFrame.from_records(res)
-    df = df[df['primary_type'].isin({'primary_type': crime_type})]
     df['date'] = pd.to_datetime(df['date'])
+    df = df[df.primary_type.isin(crime_type)]
     return df
