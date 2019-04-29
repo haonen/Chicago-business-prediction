@@ -13,11 +13,9 @@ import pdb
 def get_311(start_year, end_year):
     '''
     Get 2012 and 2017 311 data from chicago data portal
-
     Input:
         start_year: timestamp '"2017-12-31T20:00:05.000"'format
         end_time: timestamp  '"2017-12-31T20:00:05.000"' format
-
     Return:
         pandas dataframe with the columns and dtypes as COL_TYPES
     '''   
@@ -28,10 +26,10 @@ def get_311(start_year, end_year):
                  'lattitude': int} 
     DATA_ID = "v6vf-nfxy"
     cols = [item for item in COL_TYPES.keys()]
-    client = Socrata('data.cityofchicago.org', 
-                     'Lfkp6VmeW3p5ePTv0GhNSmrWh',
-                     username="pengwei@uchciago.edu",
-                     password="2h1m@k@1men")
+    client = Socrata('data.cityofchicago.org',
+                     'E0eO5nY1aKuEY1pVrunfqFhDz',
+                     username='pengwei715@gmail.com',
+                     password='1QAZ2wsx3edc')
 
     conds = "created_date between {} and {}"\
             .format(start_year, end_year)  
@@ -49,7 +47,6 @@ def get_acs_data(start_year, end_year):
     Get the information from census data
     Total population, white population, black population,
     high school degree population, household income
-
     Return:
         pandas dataframe
     '''
@@ -86,7 +83,6 @@ def get_acs_data(start_year, end_year):
 def get_crime(start_year, end_year):
     '''
     Get 2013 to 2018 crime data from chicago data portal
-
     Return:
         pandas dataframe with the columns and dtypes as COL_TYPES
     '''
@@ -109,9 +105,9 @@ def get_crime(start_year, end_year):
     CRIME_DATA_ID = "6zsd-86xi"
     cols = [item for item in COL_TYPES.keys()]
     client = Socrata('data.cityofchicago.org',
-                     'Lfkp6VmeW3p5ePTv0GhNSmrWh',
-                     username='pengwei@uchciago.edu',
-                     password='2h1m@k@1men')
+                     'E0eO5nY1aKuEY1pVrunfqFhDz',
+                     username='pengwei715@gmail.com',
+                     password='1QAZ2wsx3edc')
     conds = "year >= {} AND year <= {}".format(start_year, end_year)
     res = client.get(CRIME_DATA_ID, 
                      select=",".join(cols),
