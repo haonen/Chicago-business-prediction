@@ -19,11 +19,11 @@ def get_311(start_year, end_year):
     Return:
         pandas dataframe with the columns and dtypes as COL_TYPES
     '''   
-    COL_TYPES = {'st_type': str, 
+    COL_TYPES = {'sr_type': str, 
                  'created_date': str,
-                 'zip_code': float,
+                 'zip_code': int,
                  'longitude': float,
-                 'lattitude': int} 
+                 'latitude': float} 
     DATA_ID = "v6vf-nfxy"
     cols = [item for item in COL_TYPES.keys()]
     client = Socrata('data.cityofchicago.org',
@@ -34,12 +34,34 @@ def get_311(start_year, end_year):
     conds = "created_date between {} and {}"\
             .format(start_year, end_year)  
     res = client.get(DATA_ID, 
-                     select=",".join(cols),
-                     where= conds)
+                     #select=",".join(cols),
+                     where= conds,
+                     limit = 1000000)
     client.close()
     df = pd.DataFrame.from_records(res)
-    df = df.astype(COL_TYPES)
-    df['year'] = pd.to_datetime(df['created_date'])
+    df['created_date'] = pd.to_datetime(df['created_date'])
+    return df
+
+
+def get_business(start_date, end_date):
+    '''
+    Get 2013 to 2018 business data
+    start_date: "'2019-12-18T20:00:05'"
+    end_date: "'2019-12-18T20:00:05'"
+    '''
+    DATA_ID = "xqx5-8hwx"
+    client = Socrata('data.cityofchicago.org',
+                     'E0eO5nY1aKuEY1pVrunfqFhDz',
+                     username='pengwei715@gmail.com',
+                     password='1QAZ2wsx3edc')
+
+    conds = "date_issued between {} and {}"\
+            .format(start_year, end_year)  
+    res = client.get(DATA_ID, 
+    	where = conds,
+    	limit = 1000000)
+    client.close()
+    df = pd.DataFrame.from_records(res)
     return df
 
 def get_acs_data(start_year, end_year):
