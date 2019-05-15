@@ -14,32 +14,34 @@ def get_311(start_year, end_year):
     '''
     Get 2012 and 2017 311 data from chicago data portal
     Input:
-        start_year: timestamp '"2017-12-31T20:00:05.000"'format
-        end_time: timestamp  '"2017-12-31T20:00:05.000"' format
+        start_year: timestamp '"2017-12-31T20:00:05"'format
+        end_time: timestamp  '"2017-12-31T20:00:05"' format
     Return:
         pandas dataframe with the columns and dtypes as COL_TYPES
     '''   
-    COL_TYPES = {'sr_type': str, 
-                 'created_date': str,
+    '''COL_TYPES = {'sr_type': str, 
+                 #'created_date': str,
                  'zip_code': int,
                  'longitude': float,
-                 'latitude': float} 
+                 'latitude': float,
+                  'legacy_record': bool} '''
     DATA_ID = "v6vf-nfxy"
-    cols = [item for item in COL_TYPES.keys()]
+    #cols = [item for item in COL_TYPES.keys()]
     client = Socrata('data.cityofchicago.org',
                      'E0eO5nY1aKuEY1pVrunfqFhDz',
                      username='pengwei715@gmail.com',
                      password='1QAZ2wsx3edc')
 
-    conds = "created_date between {} and {}"\
-            .format(start_year, end_year)  
+    conds = '''legacy_sr_number IS NULL'''
+    pdb.set_trace()
     res = client.get(DATA_ID, 
-                     #select=",".join(cols),
                      where= conds,
                      limit = 1000000)
     client.close()
     df = pd.DataFrame.from_records(res)
-    df['created_date'] = pd.to_datetime(df['created_date'])
+    #df['created_date'] = pd.to_datetime(df['created_date'])
+    #df = df[df['created_date']>start_year]
+    #df = df[df['created_date']<end_year]
     return df
 
 
@@ -55,8 +57,8 @@ def get_business(start_date, end_date):
                      username='pengwei715@gmail.com',
                      password='1QAZ2wsx3edc')
 
-    conds = "date_issued between {} and {}"\
-            .format(start_year, end_year)  
+    conds = '''date_issued between "{}" and "{}"'''\
+            .format(start_date, end_date)  
     res = client.get(DATA_ID, 
     	where = conds,
     	limit = 1000000)
@@ -115,23 +117,23 @@ def get_crime(start_year, end_year):
                   "ARSON", 
                   "MOTOR VEHICLE THEFT",
                   "THEFT"]
-    COL_TYPES = {'block': str, 
+    ''' COL_TYPES = {'block': str, 
                  'case_number': str,
                  'primary_type': 'category',
                  'date': str,
                  'latitude': float,
                  'longitude': float,
-                 'year': int}
+                 'year': int}'''
     MAX_ROWS = 6839451 # the total rows of the original data
     CRIME_DATA_ID = "6zsd-86xi"
-    cols = [item for item in COL_TYPES.keys()]
+    #cols = [item for item in COL_TYPES.keys()]
     client = Socrata('data.cityofchicago.org',
                      'E0eO5nY1aKuEY1pVrunfqFhDz',
                      username='pengwei715@gmail.com',
                      password='1QAZ2wsx3edc')
     conds = "year >= {} AND year <= {}".format(start_year, end_year)
     res = client.get(CRIME_DATA_ID, 
-                     select=",".join(cols),
+                    # select=",".join(cols),
                      where= conds,
                      limit = MAX_ROWS)
     client.close()
