@@ -117,13 +117,13 @@ def get_crime(start_year, end_year):
                   "ARSON", 
                   "MOTOR VEHICLE THEFT",
                   "THEFT"]
-    ''' COL_TYPES = {'block': str, 
+    COL_TYPES = {'block': str, 
                  'case_number': str,
                  'primary_type': 'category',
                  'date': str,
                  'latitude': float,
                  'longitude': float,
-                 'year': int}'''
+                 'year': int}
     MAX_ROWS = 6839451 # the total rows of the original data
     CRIME_DATA_ID = "6zsd-86xi"
     #cols = [item for item in COL_TYPES.keys()]
@@ -140,4 +140,5 @@ def get_crime(start_year, end_year):
     df = pd.DataFrame.from_records(res)
     df['date'] = pd.to_datetime(df['date'])
     df = df[df.primary_type.isin(crime_type)]
+    df = df.astype(COL_TYPES)
     return df
