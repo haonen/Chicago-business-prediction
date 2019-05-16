@@ -6,13 +6,13 @@ Link the crime data with the neighborhood geom dataframe
 
 import data_loader as lo
 import pandas as pd
-import neighborhoods as nb
+import util as ut
 import logging
 import sys
 
 logger = logging.getLogger('merging')
 ch = logging.StreamHandler(sys.stdout)
-fh = logging.FileHandler('./debug.log')
+fh = logging.FileHandler('./log/debug.log')
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
 fh.setFormatter(formatter)
@@ -41,9 +41,9 @@ def link_geo(df, lon_col, lat_col, level_id = NEIGHS_ID):
     do a spacial join of the two dataframe
     '''
     logger.info("merging")
-    geo_df = nb.convert_to_geodf(df, lon_col, lat_col)
-    target_geo = nb.import_geometries(level_id)
-    return nb.link_two_geos(geo_df, target_geo)
+    geo_df = ut.convert_to_geodf(df, lon_col, lat_col)
+    target_geo = ut.import_geometries(level_id)
+    return ut.link_two_geos(geo_df, target_geo)
 
 
 
