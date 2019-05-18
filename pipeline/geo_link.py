@@ -1,7 +1,8 @@
 '''
 
-Link the crime data with the neighborhood geom dataframe
-
+Link the any data with the colum of latitude and longitude
+with two levels of geo data, one is zip code level, the other
+is the neighborhood level
 '''
 
 import data_loader as lo
@@ -45,7 +46,6 @@ def link_geo(df, lon_col, lat_col, level_id = NEIGHS_ID):
     target_geo = ut.import_geometries(level_id)
     return ut.link_two_geos(geo_df, target_geo)
 
-
-
-
-
+if __name__ == '__main__':
+    crime_df = lo.get_crime(2013,2013)
+    link_geo(crime_df, 'longitude','latitude')
