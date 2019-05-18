@@ -15,6 +15,7 @@ DATA_IDS = {'Alley Lights Out': 't28b-ys7j', 'Tree Debris': 'mab8-y9h3',\
          'Street Lights - All Out': 'zuxi-7xem',\
          'Street Lights - One Out': '3aav-uy2v'}
 
+
 def process_311(data_ids):
     '''
     Process and merge 311 data set.
@@ -38,3 +39,15 @@ def process_311(data_ids):
     processed_df = processed_df.fillna(0)
     
     return processed_df
+
+
+df = processed_df(DATA_IDS)
+vab = dl.get_311("7nii-7srd")
+new_vab = vab.groupby(['zip_code']).size().reset_index()
+             .rename(columns={0: 'Vacant and Abandoned Buildings Reported'})
+new_vab = new_vab.astype({"zip_code": int})
+new_df = pd.merge(df, new_vab,  how='outer',\
+                            left_on=['zip_code'], right_on = ['zip_code'])
+new_df.to_csv('311.csv', sep=',')
+
+
