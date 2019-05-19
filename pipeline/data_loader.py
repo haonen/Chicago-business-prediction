@@ -10,12 +10,11 @@ from census import Census
 from us import states
 import pdb
 
-def get_311(start_year, end_year):
+def get_311(data_id):
     '''
     Get 2012 and 2017 311 data from chicago data portal
     Input:
-        start_year: timestamp '"2017-12-31T20:00:05"'format
-        end_time: timestamp  '"2017-12-31T20:00:05"' format
+        data_id: id of different type of report
     Return:
         pandas dataframe with the columns and dtypes as COL_TYPES
     '''   
@@ -25,7 +24,6 @@ def get_311(start_year, end_year):
                  'longitude': float,
                  'latitude': float,
                   'legacy_record': bool} '''
-    DATA_ID = "v6vf-nfxy"
     #cols = [item for item in COL_TYPES.keys()]
     client = Socrata('data.cityofchicago.org',
                      'E0eO5nY1aKuEY1pVrunfqFhDz',
@@ -33,16 +31,16 @@ def get_311(start_year, end_year):
                      password='1QAZ2wsx3edc')
 
     conds = '''legacy_sr_number IS NULL'''
-    pdb.set_trace()
-    res = client.get(DATA_ID, 
-                     where= conds,
+    res = client.get(data_id, 
+                     #where= conds,
                      limit = 1000000)
     client.close()
     df = pd.DataFrame.from_records(res)
-    #df['created_date'] = pd.to_datetime(df['created_date'])
-    #df = df[df['created_date']>start_year]
-    #df = df[df['created_date']<end_year]
+#     df['created_date'] = pd.to_datetime(df['created_date'])
+#     df = df[df['created_date']>start_year]
+#     df = df[df['created_date']<end_year]
     return df
+
 
 
 def get_business(start_date, end_date):
