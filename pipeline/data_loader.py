@@ -124,14 +124,14 @@ def get_crime(start_year, end_year):
                  'year': int}
     MAX_ROWS = 6839451 # the total rows of the original data
     CRIME_DATA_ID = "6zsd-86xi"
-    #cols = [item for item in COL_TYPES.keys()]
+    cols = [item for item in COL_TYPES.keys()]
     client = Socrata('data.cityofchicago.org',
                      'E0eO5nY1aKuEY1pVrunfqFhDz',
                      username='pengwei715@gmail.com',
                      password='1QAZ2wsx3edc')
     conds = "year >= {} AND year <= {}".format(start_year, end_year)
     res = client.get(CRIME_DATA_ID, 
-                    # select=",".join(cols),
+                     select=",".join(cols),
                      where= conds,
                      limit = MAX_ROWS)
     client.close()

@@ -10,6 +10,9 @@ import pandas as pd
 import util as ut
 import logging
 import sys
+import numpy as np
+import csv
+import pdb
 
 logger = logging.getLogger('merging')
 ch = logging.StreamHandler(sys.stdout)
@@ -46,6 +49,20 @@ def link_geo(df, lon_col, lat_col, level_id = NEIGHS_ID):
     target_geo = ut.import_geometries(level_id)
     return ut.link_two_geos(geo_df, target_geo)
 
+def split_crime(df, number = 10000):
+   '''
+   everytime give 10000 rows of data
+   '''
+   yield df.iloc[:number]
+   logger.info('giving the subset of dataframe')
+   df = df.iloc[number:]
+   
 if __name__ == '__main__':
     crime_df = lo.get_crime(2013,2013)
-    link_geo(crime_df, 'longitude','latitude')
+    count = 1
+    for df in split_crime(crime_df):
+        pdb.set_trace()
+        logger.info("merging {} part of data".format(count))
+        res = link_geo(df, 'longitude','latitude')
+        res.to_csv('.\data\merged_after_{}.csv'.format(count))
+    
