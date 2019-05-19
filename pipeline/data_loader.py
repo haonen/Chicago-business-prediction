@@ -8,7 +8,6 @@ import numpy as np
 import datetime as dt
 from census import Census
 from us import states
-import pdb
 
 def get_311(start_year, end_year):
     '''
@@ -124,7 +123,7 @@ def get_crime(start_year, end_year):
                  'latitude': float,
                  'longitude': float,
                  'year': int}
-    MAX_ROWS = 6839451 # the total rows of the original data
+    MAX_ROWS = 100000000 # the total rows of the original data
     CRIME_DATA_ID = "6zsd-86xi"
     cols = [item for item in COL_TYPES.keys()]
     client = Socrata('data.cityofchicago.org',
@@ -138,7 +137,7 @@ def get_crime(start_year, end_year):
                      limit = MAX_ROWS)
     client.close()
     df = pd.DataFrame.from_records(res)
-    df['date'] = pd.to_datetime(df['date'])
-    df = df[df.primary_type.isin(crime_type)]
+    #df['date'] = pd.to_datetime(df['date'])
+    #df = df[df.primary_type.isin(crime_type)]
     df = df.astype(COL_TYPES)
     return df
