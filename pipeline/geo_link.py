@@ -1,5 +1,4 @@
 '''
-
 Link the any data with the colum of latitude and longitude
 with two levels of geo data, one is zip code level, the other
 is the neighborhood level
@@ -11,7 +10,9 @@ import util as ut
 import logging
 import sys
 import numpy as np
-import csv
+import argparse
+import os
+import sys
 import pdb
 
 logger = logging.getLogger('merging')
@@ -49,20 +50,40 @@ def link_geo(df, lon_col, lat_col, level_id = NEIGHS_ID):
     target_geo = ut.import_geometries(level_id)
     return ut.link_two_geos(geo_df, target_geo)
 
-def split_crime(df, number = 10000):
+def split_crime(df, number = 1000):
    '''
    everytime give 10000 rows of data
    '''
-   yield df.iloc[:number]
    logger.info('giving the subset of dataframe')
-   df = df.iloc[number:]
-   
-if __name__ == '__main__':
-    crime_df = lo.get_crime(2013,2013)
+   while df.shape[0]:
+       yield df.iloc[:number]
+       df = df.iloc[number:]
+
+def process_crime(df, year, part_num):
+    '''
+    processing the crime data
+    '''
+    logger.info('begin to processing year {} part {}'.format(year, part_num))
+    res = link_geo(df, 'longitude','latitude')
+    #pdb.set_trace()
+    res = res.drop(['longitude','latitude','coordinates','index__neig','objectid'], axis=1)
+    filename = 'crime_{}_{}.csv'.format(year, part_num)
+    res.to_csv(filename)
+
+def run_crime(args):
+    year = args.year
+    num = args.number
+    crime_df = lo.get_crime(year,year)
+    temp = split_crime(crime_df,num)
     count = 1
-    for df in split_crime(crime_df):
-        pdb.set_trace()
-        logger.info("merging {} part of data".format(count))
-        res = link_geo(df, 'longitude','latitude')
-        res.to_csv('.\data\merged_after_{}.csv'.format(count))
-    
+    for df in temp:
+        logger.info("merging year {} data".format(year))
+        process_crime(df,year,count)
+        count += 1
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='pass year and number of data') 
+    parser.add_argument('--year', dest='year', type=int, default=2013)
+    parser.add_argument('--number', dest ='number', type=int, default =1000)
+    args = parser.parse_args()
+    run_crime(args) 
