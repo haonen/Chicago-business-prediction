@@ -22,32 +22,43 @@ def process_311(data_ids):
     Inputs:
         data_ids: (dictionary) of different complaint and its id
     Returns:
-        a merged dataframe of the amount of different type of 311
+        (dataframe) of different type of 311 complaint
     '''
-    merged_df = pd.DataFrame(columns=['zip_code','year'])
+    merged_df = pd.DataFrame(columns=['zip_code','year']) 
     for c, d_id in data_ids.items():
         df = dl.get_311(d_id)
         df['year'] = df['creation_date'].str[:4]
-        n_df = df.groupby(['zip_code', 'year']).size()\
-                 .reset_index().rename(columns={0: c})
-        merged_df = pd.merge(merged_df, n_df, how='outer',\
-                             left_on=['zip_code','year'],\
-                             right_on =['zip_code','year'])
-    merged_df = merged_df.astype({'year': str, 'zip_code': str})
-    processed_df = merged_df[(merged_df['year'] >= 2012)\
-                            & (merged_df['year'] <= 2017)]
+        ndf = calculate_completion_rate(df, c)
+        merged_df = pd.merge(merged_df, ndf, how='outer',\
+                    left_on=['zip_code','year'], right_on = ['zip_code','year'])
+    merged_df = merged_df.astype({"year": int})
+    processed_df = merged_df[(merged_df['year'] >= 2012) & (merged_df['year'] <= 2017)]
     processed_df = processed_df.fillna(0)
     
     return processed_df
 
 
-df = processed_df(DATA_IDS)
-vab = dl.get_311('7nii-7srd')
-new_vab = vab.groupby(['zip_code']).size().reset_index()
-             .rename(columns={0: 'Vacant and Abandoned Buildings Reported'})
-new_vab = new_vab.astype({'zip_code': str})
-new_df = pd.merge(df, new_vab,  how='outer',\
-                            left_on=['zip_code'], right_on = ['zip_code'])
-new_df.to_csv('311.csv', sep=',')
+def calculate_completion_rate(df, complaint):
+    '''
+    Calculate the completion rate of each complaint type.
+    Inputs:
+        df: (dataframe) of each complaint type
+        complaint: (str) of the name of complaint type
+    Returns:
+        (dataframe) of each complaint type with completion rate
+    '''
+    col_name_1 = complaint + '_completed'
+    df[col_name_1] = df['completion_date'].apply(lambda x: 0 if pd.isnull(x) else 1)
+    df_complete = df.groupby(['zip_code', 'year'])[col_name_1]
+                    .sum().reset_index().rename(columns={0: complaint})
+    df_total = df.groupby(['zip_code', 'year']).size()
+                 .reset_index().rename(columns={0: complaint})
+    merged_df = pd.merge(df_total, df_complete, how='outer',\
+                         left_on=['zip_code','year'], right_on = ['zip_code','year'])
+    col_name_2 = complaint + '_completion_rate'
+    merged_df[col_name_2] = merged_df.apply(lambda x: x[col_name_1]/x[complaint], axis=1)
+    merged_df = merged_df.drop([col_name_1], axis=1)
+    
+    return merged_df
 
 
