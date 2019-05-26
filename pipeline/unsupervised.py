@@ -75,6 +75,6 @@ def depict_mds_plot(pos, angle):
 
     seq=[]
     for i in range(0,360, angle):
-        im=Image.open(r'D:\Project Data\ML project\mds_plot%d.png'%i)
+        im=Image.open(r'mds_plot%d.png'%i)
         seq.append(im)
-        seq[0].save(r'D:\Project Data\ML project\mds_plot.gif',save_all=True,append_images=seq[1:])
+        seq[0].save(r'mds_plot.gif',save_all=True,append_images=seq[1:])
