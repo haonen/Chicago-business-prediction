@@ -81,6 +81,7 @@ def calculate_col_per_capita(cols):
 
 
 df = pb.read_data('../Downloads/updated_data.csv', INDEXCOL, DATECOL)
+df = df.drop('license_death', axis=1)
 df = pb.create_outcome(
     df, 'license death', 'DATE ISSUED', 'LICENSE STATUS CHANGE DATE', 'LICENSE TERM EXPIRATION DATE')
 df = rename_cols(df)
