@@ -62,3 +62,7 @@ def calculate_completion_rate(df, complaint):
     return merged_df
 
 
+df = process_311(DATA_IDS)
+df.to_csv('311.csv', sep=',')
+
+
