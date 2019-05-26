@@ -71,7 +71,7 @@ def depict_mds_plot(pos, angle):
 
     for angle in range(0,360, angle):
         ax.view_init(30, angle)
-        plt.savefig(r'D:\Project Data\ML project\mds_plot%d'%angle)
+        plt.savefig(r'mds_plot%d'%angle)
 
     seq=[]
     for i in range(0,360, angle):
