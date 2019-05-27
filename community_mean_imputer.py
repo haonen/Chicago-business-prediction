@@ -40,6 +40,7 @@ class community_mean_imputer:
     '''
     def __init__(self):
         self.trained_imp = {}
+        self.filled_categorical = None
 
 
     def filled_categorical(self, train_df, test_df, categorical_columns):
