@@ -51,7 +51,6 @@ class community_mean_imputer:
             time_column: column represents time unit
         Returns: the imputed trained dataframe
         '''
-        #self.trained_impdf = pd.DataFrame(columns=list(df.columns))
 
         used_col_list = list(df.columns)
         for i in [loc_column, time_column]:
