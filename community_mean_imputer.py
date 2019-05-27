@@ -38,9 +38,29 @@ class community_mean_imputer:
     '''
     The class is designed to implement imputation with regional mean in given time
     '''
-    def __init__(self, imputer_name):
-        self.name = imputer_name
+    def __init__(self):
         self.trained_imp = {}
+
+
+    def filled_categorical(self, train_df, test_df, categorical_columns):
+    	'''
+    	The function is used to fill in unknown for the missing values in categorical
+    	variables
+    	Inputs:
+    	    train_df: training dataframe
+    	    test_df: testing dataframe
+    	    categorical_columns: list of columns with categorical variables
+    	Returns: train_df, test_df
+    	'''
+    	self.filled_categorical = categorical_columns
+    	for column in categorical_columns:
+    		train_df[column].fillna("unknown")
+
+    	for test_col in categorical_columns:
+    		test_df[column].fillna("unknown")
+
+    	return train_df, test_df
+
 
     def train_regional_mean(self, df, loc_column, time_column):
         '''
@@ -53,7 +73,7 @@ class community_mean_imputer:
         '''
 
         used_col_list = list(df.columns)
-        for i in [loc_column, time_column]:
+        for i in [loc_column, time_column] + self.categorical_columns:
             used_col_list.remove(i)
 
         for col in used_col_list:
@@ -80,7 +100,7 @@ class community_mean_imputer:
         Returns: imputed test dataframe
         '''
         used_col_list = list(df.columns)
-        for i in [loc_column, time_column]:
+        for i in [loc_column, time_column] + self.categorical_columns:
             used_col_list.remove(i)
 
         for column in used_col_list:
