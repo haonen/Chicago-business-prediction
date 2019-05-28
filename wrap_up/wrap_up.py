@@ -35,8 +35,8 @@ def wrap_up(X, y, min_year, max_year, loc_column, time_column, categorical_col, 
         X_test = imputer.transform_test(X_test, loc_column, time_column)
 
         # Drop year column
-        X_train = X_train.drop(columns=['year'])
-        X_test = X_test.drop(columns=['year'])
+        X_train = X_train.drop(columns=[time_column])
+        X_test = X_test.drop(columns=[time_column])
 
         #get dummies
         for col in categorical_col:
