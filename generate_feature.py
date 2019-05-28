@@ -14,8 +14,8 @@ COLS_TO_DIVIDE_POP = ['health coverage population', 'same house',\
 'burglary', 'crim sexual assault', 'homicide',\
 'motor vehicle theft', 'robbery', 'theft']
 
-COLS_TO_RESERVE = ['application type', 'conditional approval', \
-       'license description', 'ward', 'zip code',\
+COLS_TO_RESERVE = ['application type', 'conditional approval',\
+       'license description', 'ward', 'zip code', 'year',\
        'total population', 'median household income', 'gini index',\
        'health coverage population', 'poverty rate', 'unemployment rate',\
        'alley lights out', 'alley lights out completion rate',\
@@ -29,7 +29,7 @@ COLS_TO_RESERVE = ['application type', 'conditional approval', \
        'tree debris completion rate', 'tree trims',\
        'tree trims completion rate', 'duration', 'arson', 'assault', 'battery',\
        'burglary', 'crim sexual assault', 'homicide', 'motor vehicle theft',\
-       'robbery', 'theft', 'in zip', 'same house', 'license death',\
+       'robbery', 'theft', 'same house', 'license death',\
        'health coverage population per capita', 'same house per capita',\
        'alley lights out per capita', 'abandoned vehicles per capita',\
        'garbage carts per capita', 'graffiti removal per capita',\
@@ -80,7 +80,7 @@ def calculate_col_per_capita(cols):
     return None
 
 
-df = pb.read_data('../Downloads/updated_data.csv', INDEXCOL, DATECOL)
+df = pb.read_data('updated_data.csv', INDEXCOL, DATECOL)
 df = df.drop('license_death', axis=1)
 df = pb.create_outcome(
     df, 'license death', 'DATE ISSUED', 'LICENSE STATUS CHANGE DATE', 'LICENSE TERM EXPIRATION DATE')
