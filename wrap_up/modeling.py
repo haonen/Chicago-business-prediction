@@ -1,10 +1,10 @@
 from sklearn.model_selection import ParameterGrid
-import datetime
+from datetime import datetime
 import pandas as pd
 from evaluation import *
 
 
-def run_models(models_list, clfs, grid, X_train, X_test, y_train, y_test, threshold):
+def run_models(models_list, clfs, grid, X_train, X_test, y_train, y_test, threshold, save_path):
     """
     Run all the models in models_list and adjust hyper-parameters based on grid, evaluate
     them, save the results into a data frame and save the corresponding graphs
@@ -68,12 +68,10 @@ def run_models(models_list, clfs, grid, X_train, X_test, y_train, y_test, thresh
                                                    recall_at_k(y_test_sorted, y_pred_probs_sorted, 30),
                                                    recall_at_k(y_test_sorted, y_pred_probs_sorted, 50)]
 
-                graph_name_pr = 'D:/UChicago/2019 spring/CAPP30254/assignments/HW5/grpahs/' + \
-                                'precision_recall_curve of ' + models_list[index] + \
+                graph_name_pr = save_path + 'precision_recall_curve of ' + models_list[index] + \
                                 datetime.now().strftime("%m-%d-%Y %H%M%S")
                 plot_precision_recall_n(y_test, y_pred_probs, clf, graph_name_pr, 'save')
-                graph_name_roc = 'D:/UChicago/2019 spring/CAPP30254/assignments/HW5/grpahs/' + \
-                                 'roc_curve of' + models_list[index] + \
+                graph_name_roc = save_path + 'roc_curve of ' + models_list[index] + \
                                  datetime.now().strftime("%m-%d-%Y  %H%M%S")
                 plot_roc(clf, graph_name_roc, y_pred_probs, y_test, 'save')
             except IndexError as e:

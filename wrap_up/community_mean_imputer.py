@@ -42,7 +42,7 @@ class community_mean_imputer:
 
     def __init__(self):
         self.trained_imp = {}
-        self.filled_categorical = None
+        self.filled_category = ""
 
     def filled_categorical(self, train_df, test_df, categorical_columns):
         '''
@@ -54,12 +54,12 @@ class community_mean_imputer:
             categorical_columns: list of columns with categorical variables
         Returns: train_df, test_df
         '''
-        self.filled_categorical = categorical_columns
+        self.filled_category = categorical_columns
         for column in categorical_columns:
             train_df[column].fillna("unknown")
 
         for test_col in categorical_columns:
-            test_df[column].fillna("unknown")
+            test_df[test_col].fillna("unknown")
 
         return train_df, test_df
 
@@ -74,10 +74,11 @@ class community_mean_imputer:
         '''
 
         used_col_list = list(df.columns)
-        for i in [loc_column, time_column] + self.categorical_columns:
+        for i in set([loc_column, time_column] + self.filled_category):
             used_col_list.remove(i)
 
         for col in used_col_list:
+            print(col)
 
             for loc in list(df[loc_column].unique()):
                 for year in list(df[time_column].unique()):
@@ -99,14 +100,22 @@ class community_mean_imputer:
             time_column: column represents time unit
         Returns: imputed test dataframe
         '''
-        used_col_list = list(df.columns)
-        for i in [loc_column, time_column] + self.categorical_columns:
+        used_col_list = list(test_df.columns)
+        for i in set([loc_column, time_column] + self.filled_category):
             used_col_list.remove(i)
 
         for column in used_col_list:
+            for loc in list(test_df[loc_column].unique()):
+                for year in list(test_df[time_column].unique()):
+                    condition = ((test_df[column].isnull()) & (test_df[loc_column] == loc) & (
+                                test_df[time_column] == year))
+                    test_df.loc[condition, column] = self.trained_imp[(loc, year - 2)][column]
+
+            '''
             for loc_year, col_dict in self.trained_imp.items():
                 loc, year = loc_year
-                condition = ((test_df[column].isnull()) & (test_df[loc_column] == loc) & (test_df[time_column] == year))
+                condition = ((test_df[column].isnull()) & (test_df[loc_column] == loc)) #& (test_df[time_column] == year))
                 test_df.loc[condition, column] = col_dict[column]
+            '''
 
         return test_df

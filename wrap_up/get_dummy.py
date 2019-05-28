@@ -1,3 +1,7 @@
+import numpy as np
+import pandas as pd
+
+
 def get_all_dummies(X_train, X_test, colname):
     '''
     Convert the categorical variable into dummies
@@ -28,7 +32,7 @@ def get_top_k_dummies(X_train, X_test, colname, k):
     Outputs:
        Create dummies in both train and test set
     '''
-    # get top k categories from tarin set
+    # get top k categories from train set
     top_k = X_train[colname].value_counts()[:k].index
     # create dummies
     for cat in top_k:
@@ -52,7 +56,9 @@ def get_dummies(X_train, X_test, colname, k):
        Create dummies in both train and test set
     '''
     # Decide whether this use get all dummies or top k
-    if len(X_train[colname].value_counts()) > k:
-        get_top_k_dummies(X_train, X_test, colname, k)
-    else:
+    if len(X_train[colname].value_counts()) <= k or colname=='zip code':
         get_all_dummies(X_train, X_test, colname)
+    else:
+         get_top_k_dummies(X_train, X_test, colname, k)       
+    return X_train.drop(columns=[colname]), X_test.drop(columns=[colname])
+

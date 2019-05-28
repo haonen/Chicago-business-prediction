@@ -122,7 +122,7 @@ def recall_at_k(y_true, y_scores, k):
     return recall_score(y_true_sorted, preds_at_k)
 
 
-def plot_precision_recall_n(y_true, y_prob, model_name, output_type):
+def plot_precision_recall_n(y_true, y_prob, name, save_name, output_type):
     '''
     Plot precision and recall at different percent of population
     :param y_true: the true labels
@@ -156,17 +156,16 @@ def plot_precision_recall_n(y_true, y_prob, model_name, output_type):
     ax1.set_ylim([0, 1])
     ax2.set_xlim([0, 1])
 
-    name = model_name
     plt.title(name)
     if (output_type == 'save'):
-        plt.savefig(name)
+        plt.savefig(save_name)
     elif (output_type == 'show'):
         plt.show()
     else:
         plt.show()
 
 
-def plot_roc(name, probs, y_true, output_type):
+def plot_roc(name, save_name, probs, y_true, output_type):
     '''
     Plot the AUC-ROC curve
     :param name: the saved path
@@ -188,7 +187,7 @@ def plot_roc(name, probs, y_true, output_type):
     plt.title(name)
     plt.legend(loc="lower right")
     if (output_type == 'save'):
-        plt.savefig(name, close=True)
+        plt.savefig(save_name, close=True)
         plt.close()
     elif (output_type == 'show'):
         plt.show()
