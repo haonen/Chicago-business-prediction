@@ -3,7 +3,7 @@ from get_dummy import *
 from modeling import*
 
 
-def wrap_up(X, y, min_year, max_year, loc_column, time_column, categorical_col, k, model_list, clfs, grid, threshold):
+def wrap_up(X, y, min_year, max_year, loc_column, time_column, categorical_col, k, model_list, clfs, grid, threshold, save_path):
     '''
 
     :param X:
@@ -44,7 +44,7 @@ def wrap_up(X, y, min_year, max_year, loc_column, time_column, categorical_col, 
 
 
         #run models
-        df = run_models(model_list, clfs, grid, X_train, X_test, y_train, y_test, threshold)
+        df = run_models(model_list, clfs, grid, X_train, X_test, y_train, y_test, threshold, save_path)
         evaluation_results.append(df)
 
     return evaluation_results
