@@ -87,6 +87,6 @@ df = pb.create_outcome(
 df = rename_cols(df)
 calculate_col_per_capita(COLS_TO_DIVIDE_POP)
 final_df = df[COLS_TO_RESERVE]
-final_df = final_df.dropna(subset=['zip code', 'ward'], how='all')
+final_df = final_df.dropna(subset=['ward'], how='all')
 final_df.to_csv('final_data.csv')
 
