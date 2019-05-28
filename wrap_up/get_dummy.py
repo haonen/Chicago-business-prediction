@@ -56,9 +56,9 @@ def get_dummies(X_train, X_test, colname, k):
        Create dummies in both train and test set
     '''
     # Decide whether this use get all dummies or top k
-    if len(X_train[colname].value_counts()) > k:
-        get_top_k_dummies(X_train, X_test, colname, k)
-    else:
+    if len(X_train[colname].value_counts()) <= k or colname=='zip code':
         get_all_dummies(X_train, X_test, colname)
+    else:
+         get_top_k_dummies(X_train, X_test, colname, k)       
     return X_train.drop(columns=[colname]), X_test.drop(columns=[colname])
 
