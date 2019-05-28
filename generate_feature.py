@@ -4,6 +4,7 @@ Generate Feature
 
 import pandas as pd
 import preprocess_business as pb
+import re
 
 
 COLS_TO_DIVIDE_POP = ['health coverage population', 'same house',\
@@ -88,5 +89,8 @@ df = rename_cols(df)
 calculate_col_per_capita(COLS_TO_DIVIDE_POP)
 final_df = df[COLS_TO_RESERVE]
 final_df = final_df.dropna(subset=['ward'], how='all')
+final_df = final_df.astype({'duration': str})
+final_df['duration'] = final_df.apply(lambda x: re.findall(r'^[^\d]*(\d+)', x['duration'])[0], axis=1)
+final_df = final_df.astype({'duration': int})
 final_df.to_csv('final_data.csv')
 
