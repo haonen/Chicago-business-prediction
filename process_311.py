@@ -32,7 +32,7 @@ def process_311(data_ids):
         merged_df = pd.merge(merged_df, ndf, how='outer',\
                     left_on=['zip_code','year'], right_on = ['zip_code','year'])
     merged_df = merged_df.astype({"year": int})
-    processed_df = merged_df[(merged_df['year'] >= 2012) & (merged_df['year'] <= 2017)]
+    processed_df = merged_df[(merged_df['year'] >= 2008) & (merged_df['year'] <= 2017)]
     processed_df = processed_df.fillna(0)
     
     return processed_df
@@ -49,9 +49,9 @@ def calculate_completion_rate(df, complaint):
     '''
     col_name_1 = complaint + '_completed'
     df[col_name_1] = df['completion_date'].apply(lambda x: 0 if pd.isnull(x) else 1)
-    df_complete = df.groupby(['zip_code', 'year'])[col_name_1]
+    df_complete = df.groupby(['zip_code', 'year'])[col_name_1]\
                     .sum().reset_index().rename(columns={0: complaint})
-    df_total = df.groupby(['zip_code', 'year']).size()
+    df_total = df.groupby(['zip_code', 'year']).size()\
                  .reset_index().rename(columns={0: complaint})
     merged_df = pd.merge(df_total, df_complete, how='outer',\
                          left_on=['zip_code','year'], right_on = ['zip_code','year'])
