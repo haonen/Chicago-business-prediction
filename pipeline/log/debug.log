@@ -1,48 +1,611 @@
-dropping the longitude and latitude nulls
-delete 372
-dropping the longitude and latitude nulls
-2019-05-15 21:10:34,455 - merging - INFO - dropping the longitude and latitude nulls
-delete 372
-2019-05-15 21:10:35,230 - merging - INFO - delete 372
-merging
-2019-05-15 21:13:22,188 - merging - INFO - merging
-merging
-2019-05-15 21:16:35,986 - merging - INFO - merging
-2019-05-15 21:16:35,986 - merging - INFO - merging
-merging
-2019-05-15 21:20:24,833 - merging - INFO - merging
-2019-05-15 21:20:24,833 - merging - INFO - merging
-dropping the longitude and latitude nulls
-2019-05-15 21:24:20,032 - merging - INFO - dropping the longitude and latitude nulls
-2019-05-15 21:24:20,032 - merging - INFO - dropping the longitude and latitude nulls
-2019-05-15 21:24:20,032 - merging - INFO - dropping the longitude and latitude nulls
-dropping the longitude and latitude nulls
-2019-05-15 21:25:05,005 - merging - INFO - dropping the longitude and latitude nulls
-2019-05-15 21:25:05,005 - merging - INFO - dropping the longitude and latitude nulls
-2019-05-15 21:25:05,005 - merging - INFO - dropping the longitude and latitude nulls
-delete 0
-2019-05-15 21:25:05,789 - merging - INFO - delete 0
-2019-05-15 21:25:05,789 - merging - INFO - delete 0
-2019-05-15 21:25:05,789 - merging - INFO - delete 0
-2019-05-15 21:41:28,893 - merging - INFO - dropping the longitude and latitude nulls
-2019-05-15 21:41:29,322 - merging - INFO - delete 110
-2019-05-15 21:42:39,685 - merging - INFO - dropping the longitude and latitude nulls
-2019-05-15 21:42:40,103 - merging - INFO - delete 110
-2019-05-15 21:45:15,836 - merging - INFO - dropping the longitude and latitude nulls
-2019-05-15 21:45:16,267 - merging - INFO - delete 110
-2019-05-15 22:04:40,798 - merging - INFO - dropping the longitude and latitude nulls
-2019-05-15 22:04:40,798 - merging - INFO - dropping the longitude and latitude nulls
-2019-05-15 22:04:41,103 - merging - INFO - delete 110
-2019-05-15 22:04:41,103 - merging - INFO - delete 110
-2019-05-15 22:05:51,335 - merging - INFO - merging
-2019-05-15 22:05:51,335 - merging - INFO - merging
-2019-05-15 22:05:51,335 - merging - INFO - merging
-2019-05-15 22:06:22,663 - merging - INFO - merging
-2019-05-15 22:06:22,663 - merging - INFO - merging
-2019-05-15 22:06:22,663 - merging - INFO - merging
-2019-05-15 22:06:22,663 - merging - INFO - merging
-2019-05-15 22:06:47,653 - merging - INFO - merging
-2019-05-15 22:06:47,653 - merging - INFO - merging
-2019-05-15 22:06:47,653 - merging - INFO - merging
-2019-05-15 22:06:47,653 - merging - INFO - merging
-2019-05-15 22:06:47,653 - merging - INFO - merging
+2019-05-18 21:49:49,383 - merging - INFO - giving the subset of dataframe
+2019-05-18 21:49:49,383 - merging - INFO - merging year 2013 data
+2019-05-18 21:49:49,384 - merging - INFO - begin to processing year 2013 part 1
+2019-05-18 21:49:49,384 - merging - INFO - merging
+2019-05-18 21:51:20,268 - merging - INFO - merging year 2013 data
+2019-05-18 21:51:20,268 - merging - INFO - begin to processing year 2013 part 2
+2019-05-18 21:51:20,268 - merging - INFO - merging
+2019-05-18 21:52:57,931 - merging - INFO - merging year 2013 data
+2019-05-18 21:52:57,932 - merging - INFO - begin to processing year 2013 part 3
+2019-05-18 21:52:57,932 - merging - INFO - merging
+2019-05-18 21:54:32,844 - merging - INFO - merging year 2013 data
+2019-05-18 21:54:32,845 - merging - INFO - begin to processing year 2013 part 4
+2019-05-18 21:54:32,845 - merging - INFO - merging
+2019-05-18 21:56:08,408 - merging - INFO - merging year 2013 data
+2019-05-18 21:56:08,408 - merging - INFO - begin to processing year 2013 part 5
+2019-05-18 21:56:08,408 - merging - INFO - merging
+2019-05-18 21:57:43,515 - merging - INFO - merging year 2013 data
+2019-05-18 21:57:43,515 - merging - INFO - begin to processing year 2013 part 6
+2019-05-18 21:57:43,516 - merging - INFO - merging
+2019-05-18 21:59:19,145 - merging - INFO - merging year 2013 data
+2019-05-18 21:59:19,145 - merging - INFO - begin to processing year 2013 part 7
+2019-05-18 21:59:19,145 - merging - INFO - merging
+2019-05-18 22:00:50,091 - merging - INFO - merging year 2013 data
+2019-05-18 22:00:50,091 - merging - INFO - begin to processing year 2013 part 8
+2019-05-18 22:00:50,091 - merging - INFO - merging
+2019-05-18 22:02:21,672 - merging - INFO - merging year 2013 data
+2019-05-18 22:02:21,672 - merging - INFO - begin to processing year 2013 part 9
+2019-05-18 22:02:21,672 - merging - INFO - merging
+2019-05-18 22:03:51,554 - merging - INFO - merging year 2013 data
+2019-05-18 22:03:51,554 - merging - INFO - begin to processing year 2013 part 10
+2019-05-18 22:03:51,554 - merging - INFO - merging
+2019-05-18 22:05:18,999 - merging - INFO - merging year 2013 data
+2019-05-18 22:05:18,999 - merging - INFO - begin to processing year 2013 part 11
+2019-05-18 22:05:18,999 - merging - INFO - merging
+2019-05-18 22:06:46,225 - merging - INFO - merging year 2013 data
+2019-05-18 22:06:46,225 - merging - INFO - begin to processing year 2013 part 12
+2019-05-18 22:06:46,225 - merging - INFO - merging
+2019-05-18 22:08:15,306 - merging - INFO - merging year 2013 data
+2019-05-18 22:08:15,306 - merging - INFO - begin to processing year 2013 part 13
+2019-05-18 22:08:15,306 - merging - INFO - merging
+2019-05-18 22:09:52,736 - merging - INFO - merging year 2013 data
+2019-05-18 22:09:52,736 - merging - INFO - begin to processing year 2013 part 14
+2019-05-18 22:09:52,736 - merging - INFO - merging
+2019-05-18 22:11:28,762 - merging - INFO - merging year 2013 data
+2019-05-18 22:11:28,763 - merging - INFO - begin to processing year 2013 part 15
+2019-05-18 22:11:28,763 - merging - INFO - merging
+2019-05-18 22:13:04,535 - merging - INFO - merging year 2013 data
+2019-05-18 22:13:04,535 - merging - INFO - begin to processing year 2013 part 16
+2019-05-18 22:13:04,535 - merging - INFO - merging
+2019-05-18 22:14:51,580 - merging - INFO - merging year 2013 data
+2019-05-18 22:14:51,580 - merging - INFO - begin to processing year 2013 part 17
+2019-05-18 22:14:51,580 - merging - INFO - merging
+2019-05-18 22:16:33,460 - merging - INFO - merging year 2013 data
+2019-05-18 22:16:33,460 - merging - INFO - begin to processing year 2013 part 18
+2019-05-18 22:16:33,460 - merging - INFO - merging
+2019-05-18 22:18:03,954 - merging - INFO - merging year 2013 data
+2019-05-18 22:18:03,954 - merging - INFO - begin to processing year 2013 part 19
+2019-05-18 22:18:03,954 - merging - INFO - merging
+2019-05-18 23:27:32,632 - merging - INFO - giving the subset of dataframe
+2019-05-18 23:27:32,633 - merging - INFO - merging year 2013 data
+2019-05-18 23:27:32,633 - merging - INFO - begin to processing year 2013 part 1
+2019-05-18 23:27:32,633 - merging - INFO - merging
+2019-05-18 23:29:04,621 - merging - INFO - merging year 2013 data
+2019-05-18 23:29:04,621 - merging - INFO - begin to processing year 2013 part 2
+2019-05-18 23:29:04,621 - merging - INFO - merging
+2019-05-18 23:30:41,237 - merging - INFO - merging year 2013 data
+2019-05-18 23:30:41,237 - merging - INFO - begin to processing year 2013 part 3
+2019-05-18 23:30:41,237 - merging - INFO - merging
+2019-05-18 23:40:19,360 - merging - INFO - giving the subset of dataframe
+2019-05-18 23:40:19,360 - merging - INFO - merging year 2014 data
+2019-05-18 23:40:19,361 - merging - INFO - begin to processing year 2014 part 10000
+2019-05-18 23:40:19,361 - merging - INFO - merging
+2019-05-18 23:41:44,341 - merging - INFO - merging year 2014 data
+2019-05-18 23:41:44,341 - merging - INFO - begin to processing year 2014 part 10000
+2019-05-18 23:41:44,341 - merging - INFO - merging
+2019-05-18 23:43:15,250 - merging - INFO - merging year 2014 data
+2019-05-18 23:43:15,250 - merging - INFO - begin to processing year 2014 part 10000
+2019-05-18 23:43:15,251 - merging - INFO - merging
+2019-05-18 23:44:46,478 - merging - INFO - merging year 2014 data
+2019-05-18 23:44:46,479 - merging - INFO - begin to processing year 2014 part 10000
+2019-05-18 23:44:46,479 - merging - INFO - merging
+2019-05-18 23:46:17,508 - merging - INFO - merging year 2014 data
+2019-05-18 23:46:17,508 - merging - INFO - begin to processing year 2014 part 10000
+2019-05-18 23:46:17,508 - merging - INFO - merging
+2019-05-18 23:47:59,576 - merging - INFO - merging year 2014 data
+2019-05-18 23:47:59,576 - merging - INFO - begin to processing year 2014 part 10000
+2019-05-18 23:47:59,577 - merging - INFO - merging
+2019-05-18 23:49:44,611 - merging - INFO - merging year 2014 data
+2019-05-18 23:49:44,611 - merging - INFO - begin to processing year 2014 part 10000
+2019-05-18 23:49:44,611 - merging - INFO - merging
+2019-05-18 23:51:30,770 - merging - INFO - merging year 2014 data
+2019-05-18 23:51:30,770 - merging - INFO - begin to processing year 2014 part 10000
+2019-05-18 23:51:30,770 - merging - INFO - merging
+2019-05-18 23:54:10,381 - merging - INFO - giving the subset of dataframe
+2019-05-18 23:54:10,382 - merging - INFO - merging year 2014 data
+2019-05-18 23:54:10,382 - merging - INFO - begin to processing year 2014 part 1
+2019-05-18 23:54:10,382 - merging - INFO - merging
+2019-05-18 23:55:46,502 - merging - INFO - merging year 2014 data
+2019-05-18 23:55:46,503 - merging - INFO - begin to processing year 2014 part 2
+2019-05-18 23:55:46,503 - merging - INFO - merging
+2019-05-18 23:57:28,235 - merging - INFO - merging year 2014 data
+2019-05-18 23:57:28,235 - merging - INFO - begin to processing year 2014 part 3
+2019-05-18 23:57:28,235 - merging - INFO - merging
+2019-05-18 23:59:13,784 - merging - INFO - merging year 2014 data
+2019-05-18 23:59:13,784 - merging - INFO - begin to processing year 2014 part 4
+2019-05-18 23:59:13,784 - merging - INFO - merging
+2019-05-19 00:00:57,388 - merging - INFO - merging year 2014 data
+2019-05-19 00:00:57,388 - merging - INFO - begin to processing year 2014 part 5
+2019-05-19 00:00:57,388 - merging - INFO - merging
+2019-05-19 00:02:36,110 - merging - INFO - merging year 2014 data
+2019-05-19 00:02:36,110 - merging - INFO - begin to processing year 2014 part 6
+2019-05-19 00:02:36,111 - merging - INFO - merging
+2019-05-19 00:04:10,850 - merging - INFO - merging year 2014 data
+2019-05-19 00:04:10,850 - merging - INFO - begin to processing year 2014 part 7
+2019-05-19 00:04:10,851 - merging - INFO - merging
+2019-05-19 00:05:49,653 - merging - INFO - merging year 2014 data
+2019-05-19 00:05:49,653 - merging - INFO - begin to processing year 2014 part 8
+2019-05-19 00:05:49,653 - merging - INFO - merging
+2019-05-19 00:07:29,277 - merging - INFO - merging year 2014 data
+2019-05-19 00:07:29,278 - merging - INFO - begin to processing year 2014 part 9
+2019-05-19 00:07:29,278 - merging - INFO - merging
+2019-05-19 00:09:08,413 - merging - INFO - merging year 2014 data
+2019-05-19 00:09:08,414 - merging - INFO - begin to processing year 2014 part 10
+2019-05-19 00:09:08,414 - merging - INFO - merging
+2019-05-19 00:10:44,195 - merging - INFO - merging year 2014 data
+2019-05-19 00:10:44,196 - merging - INFO - begin to processing year 2014 part 11
+2019-05-19 00:10:44,196 - merging - INFO - merging
+2019-05-19 00:12:16,895 - merging - INFO - merging year 2014 data
+2019-05-19 00:12:16,895 - merging - INFO - begin to processing year 2014 part 12
+2019-05-19 00:12:16,895 - merging - INFO - merging
+2019-05-19 00:13:54,603 - merging - INFO - merging year 2014 data
+2019-05-19 00:13:54,603 - merging - INFO - begin to processing year 2014 part 13
+2019-05-19 00:13:54,603 - merging - INFO - merging
+2019-05-19 00:15:32,891 - merging - INFO - merging year 2014 data
+2019-05-19 00:15:32,891 - merging - INFO - begin to processing year 2014 part 14
+2019-05-19 00:15:32,891 - merging - INFO - merging
+2019-05-19 00:17:09,009 - merging - INFO - merging year 2014 data
+2019-05-19 00:17:09,009 - merging - INFO - begin to processing year 2014 part 15
+2019-05-19 00:17:09,009 - merging - INFO - merging
+2019-05-19 00:18:42,646 - merging - INFO - merging year 2014 data
+2019-05-19 00:18:42,647 - merging - INFO - begin to processing year 2014 part 16
+2019-05-19 00:18:42,647 - merging - INFO - merging
+2019-05-19 00:20:18,349 - merging - INFO - merging year 2014 data
+2019-05-19 00:20:18,349 - merging - INFO - begin to processing year 2014 part 17
+2019-05-19 00:20:18,349 - merging - INFO - merging
+2019-05-19 00:56:44,186 - merging - INFO - giving the subset of dataframe
+2019-05-19 00:56:44,187 - merging - INFO - merging year 2014 data
+2019-05-19 00:56:44,187 - merging - INFO - begin to processing year 2014 part 1
+2019-05-19 00:56:44,187 - merging - INFO - merging
+2019-05-19 00:58:16,441 - merging - INFO - merging year 2014 data
+2019-05-19 00:58:16,441 - merging - INFO - begin to processing year 2014 part 2
+2019-05-19 00:58:16,442 - merging - INFO - merging
+2019-05-19 00:59:52,478 - merging - INFO - merging year 2014 data
+2019-05-19 00:59:52,478 - merging - INFO - begin to processing year 2014 part 3
+2019-05-19 00:59:52,478 - merging - INFO - merging
+2019-05-19 01:01:30,961 - merging - INFO - merging year 2014 data
+2019-05-19 01:01:30,961 - merging - INFO - begin to processing year 2014 part 4
+2019-05-19 01:01:30,961 - merging - INFO - merging
+2019-05-19 01:03:07,756 - merging - INFO - merging year 2014 data
+2019-05-19 01:03:07,756 - merging - INFO - begin to processing year 2014 part 5
+2019-05-19 01:03:07,756 - merging - INFO - merging
+2019-05-19 01:04:50,240 - merging - INFO - merging year 2014 data
+2019-05-19 01:04:50,240 - merging - INFO - begin to processing year 2014 part 6
+2019-05-19 01:04:50,240 - merging - INFO - merging
+2019-05-19 01:06:22,600 - merging - INFO - merging year 2014 data
+2019-05-19 01:06:22,600 - merging - INFO - begin to processing year 2014 part 7
+2019-05-19 01:06:22,600 - merging - INFO - merging
+2019-05-19 01:07:53,287 - merging - INFO - merging year 2014 data
+2019-05-19 01:07:53,287 - merging - INFO - begin to processing year 2014 part 8
+2019-05-19 01:07:53,288 - merging - INFO - merging
+2019-05-19 01:09:23,096 - merging - INFO - merging year 2014 data
+2019-05-19 01:09:23,096 - merging - INFO - begin to processing year 2014 part 9
+2019-05-19 01:09:23,096 - merging - INFO - merging
+2019-05-19 01:10:52,303 - merging - INFO - merging year 2014 data
+2019-05-19 01:10:52,304 - merging - INFO - begin to processing year 2014 part 10
+2019-05-19 01:10:52,304 - merging - INFO - merging
+2019-05-19 01:12:21,616 - merging - INFO - merging year 2014 data
+2019-05-19 01:12:21,617 - merging - INFO - begin to processing year 2014 part 11
+2019-05-19 01:12:21,617 - merging - INFO - merging
+2019-05-19 01:13:51,105 - merging - INFO - merging year 2014 data
+2019-05-19 01:13:51,105 - merging - INFO - begin to processing year 2014 part 12
+2019-05-19 01:13:51,105 - merging - INFO - merging
+2019-05-19 01:15:20,452 - merging - INFO - merging year 2014 data
+2019-05-19 01:15:20,452 - merging - INFO - begin to processing year 2014 part 13
+2019-05-19 01:15:20,452 - merging - INFO - merging
+2019-05-19 01:16:50,860 - merging - INFO - merging year 2014 data
+2019-05-19 01:16:50,860 - merging - INFO - begin to processing year 2014 part 14
+2019-05-19 01:16:50,860 - merging - INFO - merging
+2019-05-19 01:18:27,335 - merging - INFO - merging year 2014 data
+2019-05-19 01:18:27,335 - merging - INFO - begin to processing year 2014 part 15
+2019-05-19 01:18:27,335 - merging - INFO - merging
+2019-05-19 01:19:58,127 - merging - INFO - merging year 2014 data
+2019-05-19 01:19:58,127 - merging - INFO - begin to processing year 2014 part 16
+2019-05-19 01:19:58,127 - merging - INFO - merging
+2019-05-19 01:21:27,819 - merging - INFO - merging year 2014 data
+2019-05-19 01:21:27,819 - merging - INFO - begin to processing year 2014 part 17
+2019-05-19 01:21:27,819 - merging - INFO - merging
+2019-05-19 01:22:37,491 - merging - INFO - giving the subset of dataframe
+2019-05-19 01:22:37,492 - merging - INFO - merging year 2015 data
+2019-05-19 01:22:37,492 - merging - INFO - begin to processing year 2015 part 1
+2019-05-19 01:22:37,492 - merging - INFO - merging
+2019-05-19 01:23:54,284 - merging - INFO - merging year 2015 data
+2019-05-19 01:23:54,284 - merging - INFO - begin to processing year 2015 part 2
+2019-05-19 01:23:54,284 - merging - INFO - merging
+2019-05-19 01:25:21,753 - merging - INFO - merging year 2015 data
+2019-05-19 01:25:21,753 - merging - INFO - begin to processing year 2015 part 3
+2019-05-19 01:25:21,753 - merging - INFO - merging
+2019-05-19 01:26:58,898 - merging - INFO - merging year 2015 data
+2019-05-19 01:26:58,899 - merging - INFO - begin to processing year 2015 part 4
+2019-05-19 01:26:58,899 - merging - INFO - merging
+2019-05-19 01:28:37,363 - merging - INFO - merging year 2015 data
+2019-05-19 01:28:37,363 - merging - INFO - begin to processing year 2015 part 5
+2019-05-19 01:28:37,363 - merging - INFO - merging
+2019-05-19 01:30:19,164 - merging - INFO - merging year 2015 data
+2019-05-19 01:30:19,164 - merging - INFO - begin to processing year 2015 part 6
+2019-05-19 01:30:19,165 - merging - INFO - merging
+2019-05-19 01:31:54,737 - merging - INFO - merging year 2015 data
+2019-05-19 01:31:54,737 - merging - INFO - begin to processing year 2015 part 7
+2019-05-19 01:31:54,737 - merging - INFO - merging
+2019-05-19 01:33:29,440 - merging - INFO - merging year 2015 data
+2019-05-19 01:33:29,440 - merging - INFO - begin to processing year 2015 part 8
+2019-05-19 01:33:29,441 - merging - INFO - merging
+2019-05-19 01:35:00,042 - merging - INFO - merging year 2015 data
+2019-05-19 01:35:00,042 - merging - INFO - begin to processing year 2015 part 9
+2019-05-19 01:35:00,043 - merging - INFO - merging
+2019-05-19 01:36:31,531 - merging - INFO - merging year 2015 data
+2019-05-19 01:36:31,531 - merging - INFO - begin to processing year 2015 part 10
+2019-05-19 01:36:31,531 - merging - INFO - merging
+2019-05-19 01:38:12,220 - merging - INFO - merging year 2015 data
+2019-05-19 01:38:12,220 - merging - INFO - begin to processing year 2015 part 11
+2019-05-19 01:38:12,221 - merging - INFO - merging
+2019-05-19 01:39:45,887 - merging - INFO - merging year 2015 data
+2019-05-19 01:39:45,887 - merging - INFO - begin to processing year 2015 part 12
+2019-05-19 01:39:45,887 - merging - INFO - merging
+2019-05-19 01:41:19,478 - merging - INFO - merging year 2015 data
+2019-05-19 01:41:19,479 - merging - INFO - begin to processing year 2015 part 13
+2019-05-19 01:41:19,479 - merging - INFO - merging
+2019-05-19 01:42:50,989 - merging - INFO - merging year 2015 data
+2019-05-19 01:42:50,990 - merging - INFO - begin to processing year 2015 part 14
+2019-05-19 01:42:50,990 - merging - INFO - merging
+2019-05-19 01:44:27,484 - merging - INFO - merging year 2015 data
+2019-05-19 01:44:27,484 - merging - INFO - begin to processing year 2015 part 15
+2019-05-19 01:44:27,484 - merging - INFO - merging
+2019-05-19 01:46:01,170 - merging - INFO - merging year 2015 data
+2019-05-19 01:46:01,171 - merging - INFO - begin to processing year 2015 part 16
+2019-05-19 01:46:01,171 - merging - INFO - merging
+2019-05-19 01:47:52,139 - merging - INFO - giving the subset of dataframe
+2019-05-19 01:47:52,140 - merging - INFO - merging year 2016 data
+2019-05-19 01:47:52,140 - merging - INFO - begin to processing year 2016 part 1
+2019-05-19 01:47:52,140 - merging - INFO - merging
+2019-05-19 01:49:15,244 - merging - INFO - merging year 2016 data
+2019-05-19 01:49:15,245 - merging - INFO - begin to processing year 2016 part 2
+2019-05-19 01:49:15,245 - merging - INFO - merging
+2019-05-19 01:50:46,818 - merging - INFO - merging year 2016 data
+2019-05-19 01:50:46,818 - merging - INFO - begin to processing year 2016 part 3
+2019-05-19 01:50:46,819 - merging - INFO - merging
+2019-05-19 01:52:18,017 - merging - INFO - merging year 2016 data
+2019-05-19 01:52:18,017 - merging - INFO - begin to processing year 2016 part 4
+2019-05-19 01:52:18,017 - merging - INFO - merging
+2019-05-19 01:53:49,796 - merging - INFO - merging year 2016 data
+2019-05-19 01:53:49,796 - merging - INFO - begin to processing year 2016 part 5
+2019-05-19 01:53:49,796 - merging - INFO - merging
+2019-05-19 01:55:19,951 - merging - INFO - merging year 2016 data
+2019-05-19 01:55:19,951 - merging - INFO - begin to processing year 2016 part 6
+2019-05-19 01:55:19,952 - merging - INFO - merging
+2019-05-19 01:56:53,147 - merging - INFO - merging year 2016 data
+2019-05-19 01:56:53,148 - merging - INFO - begin to processing year 2016 part 7
+2019-05-19 01:56:53,148 - merging - INFO - merging
+2019-05-19 01:58:27,093 - merging - INFO - merging year 2016 data
+2019-05-19 01:58:27,093 - merging - INFO - begin to processing year 2016 part 8
+2019-05-19 01:58:27,093 - merging - INFO - merging
+2019-05-19 02:00:00,328 - merging - INFO - merging year 2016 data
+2019-05-19 02:00:00,329 - merging - INFO - begin to processing year 2016 part 9
+2019-05-19 02:00:00,329 - merging - INFO - merging
+2019-05-19 02:01:40,356 - merging - INFO - merging year 2016 data
+2019-05-19 02:01:40,356 - merging - INFO - begin to processing year 2016 part 10
+2019-05-19 02:01:40,356 - merging - INFO - merging
+2019-05-19 02:03:18,205 - merging - INFO - merging year 2016 data
+2019-05-19 02:03:18,205 - merging - INFO - begin to processing year 2016 part 11
+2019-05-19 02:03:18,205 - merging - INFO - merging
+2019-05-19 02:04:49,285 - merging - INFO - merging year 2016 data
+2019-05-19 02:04:49,285 - merging - INFO - begin to processing year 2016 part 12
+2019-05-19 02:04:49,286 - merging - INFO - merging
+2019-05-19 02:06:26,594 - merging - INFO - merging year 2016 data
+2019-05-19 02:06:26,594 - merging - INFO - begin to processing year 2016 part 13
+2019-05-19 02:06:26,594 - merging - INFO - merging
+2019-05-19 02:08:06,468 - merging - INFO - merging year 2016 data
+2019-05-19 02:08:06,468 - merging - INFO - begin to processing year 2016 part 14
+2019-05-19 02:08:06,469 - merging - INFO - merging
+2019-05-19 02:09:42,146 - merging - INFO - merging year 2016 data
+2019-05-19 02:09:42,146 - merging - INFO - begin to processing year 2016 part 15
+2019-05-19 02:09:42,146 - merging - INFO - merging
+2019-05-19 02:11:17,977 - merging - INFO - merging year 2016 data
+2019-05-19 02:11:17,977 - merging - INFO - begin to processing year 2016 part 16
+2019-05-19 02:11:17,977 - merging - INFO - merging
+2019-05-19 02:12:49,697 - merging - INFO - merging year 2016 data
+2019-05-19 02:12:49,697 - merging - INFO - begin to processing year 2016 part 17
+2019-05-19 02:12:49,698 - merging - INFO - merging
+2019-05-19 02:14:22,350 - merging - INFO - merging year 2016 data
+2019-05-19 02:14:22,350 - merging - INFO - begin to processing year 2016 part 18
+2019-05-19 02:14:22,350 - merging - INFO - merging
+2019-05-19 02:15:10,730 - merging - INFO - giving the subset of dataframe
+2019-05-19 02:15:10,731 - merging - INFO - merging year 2017 data
+2019-05-19 02:15:10,731 - merging - INFO - begin to processing year 2017 part 1
+2019-05-19 02:15:10,731 - merging - INFO - merging
+2019-05-19 02:16:27,770 - merging - INFO - merging year 2017 data
+2019-05-19 02:16:27,770 - merging - INFO - begin to processing year 2017 part 2
+2019-05-19 02:16:27,771 - merging - INFO - merging
+2019-05-19 02:18:02,834 - merging - INFO - merging year 2017 data
+2019-05-19 02:18:02,835 - merging - INFO - begin to processing year 2017 part 3
+2019-05-19 02:18:02,835 - merging - INFO - merging
+2019-05-19 02:19:34,519 - merging - INFO - merging year 2017 data
+2019-05-19 02:19:34,520 - merging - INFO - begin to processing year 2017 part 4
+2019-05-19 02:19:34,520 - merging - INFO - merging
+2019-05-19 02:21:07,775 - merging - INFO - merging year 2017 data
+2019-05-19 02:21:07,775 - merging - INFO - begin to processing year 2017 part 5
+2019-05-19 02:21:07,775 - merging - INFO - merging
+2019-05-19 02:22:44,991 - merging - INFO - merging year 2017 data
+2019-05-19 02:22:44,991 - merging - INFO - begin to processing year 2017 part 6
+2019-05-19 02:22:44,991 - merging - INFO - merging
+2019-05-19 02:24:16,325 - merging - INFO - merging year 2017 data
+2019-05-19 02:24:16,325 - merging - INFO - begin to processing year 2017 part 7
+2019-05-19 02:24:16,325 - merging - INFO - merging
+2019-05-19 02:25:46,396 - merging - INFO - merging year 2017 data
+2019-05-19 02:25:46,396 - merging - INFO - begin to processing year 2017 part 8
+2019-05-19 02:25:46,396 - merging - INFO - merging
+2019-05-19 02:27:18,747 - merging - INFO - merging year 2017 data
+2019-05-19 02:27:18,747 - merging - INFO - begin to processing year 2017 part 9
+2019-05-19 02:27:18,747 - merging - INFO - merging
+2019-05-19 02:28:50,673 - merging - INFO - merging year 2017 data
+2019-05-19 02:28:50,673 - merging - INFO - begin to processing year 2017 part 10
+2019-05-19 02:28:50,673 - merging - INFO - merging
+2019-05-19 02:30:30,715 - merging - INFO - merging year 2017 data
+2019-05-19 02:30:30,715 - merging - INFO - begin to processing year 2017 part 11
+2019-05-19 02:30:30,715 - merging - INFO - merging
+2019-05-19 02:32:03,345 - merging - INFO - merging year 2017 data
+2019-05-19 02:32:03,345 - merging - INFO - begin to processing year 2017 part 12
+2019-05-19 02:32:03,345 - merging - INFO - merging
+2019-05-19 02:33:36,320 - merging - INFO - merging year 2017 data
+2019-05-19 02:33:36,320 - merging - INFO - begin to processing year 2017 part 13
+2019-05-19 02:33:36,321 - merging - INFO - merging
+2019-05-19 02:35:28,352 - merging - INFO - merging year 2017 data
+2019-05-19 02:35:28,352 - merging - INFO - begin to processing year 2017 part 14
+2019-05-19 02:35:28,352 - merging - INFO - merging
+2019-05-19 02:37:14,373 - merging - INFO - merging year 2017 data
+2019-05-19 02:37:14,373 - merging - INFO - begin to processing year 2017 part 15
+2019-05-19 02:37:14,373 - merging - INFO - merging
+2019-05-19 02:38:55,934 - merging - INFO - merging year 2017 data
+2019-05-19 02:38:55,934 - merging - INFO - begin to processing year 2017 part 16
+2019-05-19 02:38:55,934 - merging - INFO - merging
+2019-05-19 02:40:30,556 - merging - INFO - merging year 2017 data
+2019-05-19 02:40:30,556 - merging - INFO - begin to processing year 2017 part 17
+2019-05-19 02:40:30,556 - merging - INFO - merging
+2019-05-19 02:42:15,566 - merging - INFO - merging year 2017 data
+2019-05-19 02:42:15,566 - merging - INFO - begin to processing year 2017 part 18
+2019-05-19 02:42:15,566 - merging - INFO - merging
+2019-05-19 02:43:06,395 - merging - INFO - giving the subset of dataframe
+2019-05-19 02:43:06,396 - merging - INFO - merging year 2015 data
+2019-05-19 02:43:06,397 - merging - INFO - begin to processing year 2015 part 1
+2019-05-19 02:43:06,397 - merging - INFO - merging
+2019-05-19 02:44:35,171 - merging - INFO - merging year 2015 data
+2019-05-19 02:44:35,171 - merging - INFO - begin to processing year 2015 part 2
+2019-05-19 02:44:35,171 - merging - INFO - merging
+2019-05-19 02:46:17,303 - merging - INFO - merging year 2015 data
+2019-05-19 02:46:17,303 - merging - INFO - begin to processing year 2015 part 3
+2019-05-19 02:46:17,303 - merging - INFO - merging
+2019-05-19 02:48:00,350 - merging - INFO - merging year 2015 data
+2019-05-19 02:48:00,350 - merging - INFO - begin to processing year 2015 part 4
+2019-05-19 02:48:00,350 - merging - INFO - merging
+2019-05-19 02:49:44,724 - merging - INFO - merging year 2015 data
+2019-05-19 02:49:44,724 - merging - INFO - begin to processing year 2015 part 5
+2019-05-19 02:49:44,724 - merging - INFO - merging
+2019-05-19 02:51:28,168 - merging - INFO - merging year 2015 data
+2019-05-19 02:51:28,169 - merging - INFO - begin to processing year 2015 part 6
+2019-05-19 02:51:28,169 - merging - INFO - merging
+2019-05-19 02:53:22,273 - merging - INFO - merging year 2015 data
+2019-05-19 02:53:22,273 - merging - INFO - begin to processing year 2015 part 7
+2019-05-19 02:53:22,274 - merging - INFO - merging
+2019-05-19 02:55:01,046 - merging - INFO - merging year 2015 data
+2019-05-19 02:55:01,046 - merging - INFO - begin to processing year 2015 part 8
+2019-05-19 02:55:01,046 - merging - INFO - merging
+2019-05-19 02:56:41,024 - merging - INFO - merging year 2015 data
+2019-05-19 02:56:41,024 - merging - INFO - begin to processing year 2015 part 9
+2019-05-19 02:56:41,024 - merging - INFO - merging
+2019-05-19 02:58:26,463 - merging - INFO - merging year 2015 data
+2019-05-19 02:58:26,464 - merging - INFO - begin to processing year 2015 part 10
+2019-05-19 02:58:26,464 - merging - INFO - merging
+2019-05-19 02:59:58,062 - merging - INFO - merging year 2015 data
+2019-05-19 02:59:58,062 - merging - INFO - begin to processing year 2015 part 11
+2019-05-19 02:59:58,062 - merging - INFO - merging
+2019-05-19 03:01:28,958 - merging - INFO - merging year 2015 data
+2019-05-19 03:01:28,958 - merging - INFO - begin to processing year 2015 part 12
+2019-05-19 03:01:28,958 - merging - INFO - merging
+2019-05-19 03:03:00,355 - merging - INFO - merging year 2015 data
+2019-05-19 03:03:00,355 - merging - INFO - begin to processing year 2015 part 13
+2019-05-19 03:03:00,355 - merging - INFO - merging
+2019-05-19 03:04:33,377 - merging - INFO - merging year 2015 data
+2019-05-19 03:04:33,377 - merging - INFO - begin to processing year 2015 part 14
+2019-05-19 03:04:33,377 - merging - INFO - merging
+2019-05-19 03:06:05,120 - merging - INFO - merging year 2015 data
+2019-05-19 03:06:05,120 - merging - INFO - begin to processing year 2015 part 15
+2019-05-19 03:06:05,120 - merging - INFO - merging
+2019-05-19 03:07:36,553 - merging - INFO - merging year 2015 data
+2019-05-19 03:07:36,553 - merging - INFO - begin to processing year 2015 part 16
+2019-05-19 03:07:36,553 - merging - INFO - merging
+2019-05-19 03:14:21,678 - merging - INFO - giving the subset of dataframe
+2019-05-19 03:14:21,679 - merging - INFO - merging year 2018 data
+2019-05-19 03:14:21,679 - merging - INFO - begin to processing year 2018 part 1
+2019-05-19 03:14:21,679 - merging - INFO - merging
+2019-05-19 03:15:38,577 - merging - INFO - merging year 2018 data
+2019-05-19 03:15:38,578 - merging - INFO - begin to processing year 2018 part 2
+2019-05-19 03:15:38,578 - merging - INFO - merging
+2019-05-19 03:17:09,134 - merging - INFO - merging year 2018 data
+2019-05-19 03:17:09,134 - merging - INFO - begin to processing year 2018 part 3
+2019-05-19 03:17:09,134 - merging - INFO - merging
+2019-05-19 03:18:39,581 - merging - INFO - merging year 2018 data
+2019-05-19 03:18:39,581 - merging - INFO - begin to processing year 2018 part 4
+2019-05-19 03:18:39,581 - merging - INFO - merging
+2019-05-19 03:20:11,315 - merging - INFO - merging year 2018 data
+2019-05-19 03:20:11,315 - merging - INFO - begin to processing year 2018 part 5
+2019-05-19 03:20:11,315 - merging - INFO - merging
+2019-05-19 03:21:42,210 - merging - INFO - merging year 2018 data
+2019-05-19 03:21:42,210 - merging - INFO - begin to processing year 2018 part 6
+2019-05-19 03:21:42,210 - merging - INFO - merging
+2019-05-19 03:23:13,289 - merging - INFO - merging year 2018 data
+2019-05-19 03:23:13,289 - merging - INFO - begin to processing year 2018 part 7
+2019-05-19 03:23:13,289 - merging - INFO - merging
+2019-05-19 03:24:44,060 - merging - INFO - merging year 2018 data
+2019-05-19 03:24:44,060 - merging - INFO - begin to processing year 2018 part 8
+2019-05-19 03:24:44,060 - merging - INFO - merging
+2019-05-19 03:26:14,953 - merging - INFO - merging year 2018 data
+2019-05-19 03:26:14,954 - merging - INFO - begin to processing year 2018 part 9
+2019-05-19 03:26:14,954 - merging - INFO - merging
+2019-05-19 03:27:47,603 - merging - INFO - merging year 2018 data
+2019-05-19 03:27:47,603 - merging - INFO - begin to processing year 2018 part 10
+2019-05-19 03:27:47,603 - merging - INFO - merging
+2019-05-19 03:29:17,950 - merging - INFO - merging year 2018 data
+2019-05-19 03:29:17,950 - merging - INFO - begin to processing year 2018 part 11
+2019-05-19 03:29:17,950 - merging - INFO - merging
+2019-05-19 03:30:48,867 - merging - INFO - merging year 2018 data
+2019-05-19 03:30:48,868 - merging - INFO - begin to processing year 2018 part 12
+2019-05-19 03:30:48,868 - merging - INFO - merging
+2019-05-19 03:32:19,694 - merging - INFO - merging year 2018 data
+2019-05-19 03:32:19,694 - merging - INFO - begin to processing year 2018 part 13
+2019-05-19 03:32:19,694 - merging - INFO - merging
+2019-05-19 03:33:50,649 - merging - INFO - merging year 2018 data
+2019-05-19 03:33:50,649 - merging - INFO - begin to processing year 2018 part 14
+2019-05-19 03:33:50,649 - merging - INFO - merging
+2019-05-19 03:35:21,515 - merging - INFO - merging year 2018 data
+2019-05-19 03:35:21,515 - merging - INFO - begin to processing year 2018 part 15
+2019-05-19 03:35:21,515 - merging - INFO - merging
+2019-05-19 03:36:51,484 - merging - INFO - merging year 2018 data
+2019-05-19 03:36:51,485 - merging - INFO - begin to processing year 2018 part 16
+2019-05-19 03:36:51,485 - merging - INFO - merging
+2019-05-19 03:38:22,370 - merging - INFO - merging year 2018 data
+2019-05-19 03:38:22,370 - merging - INFO - begin to processing year 2018 part 17
+2019-05-19 03:38:22,370 - merging - INFO - merging
+2019-05-20 17:06:05,152 - merging - INFO - giving the subset of dataframe
+2019-05-20 17:06:05,155 - merging - INFO - merging year 2012 data
+2019-05-20 17:06:05,155 - merging - INFO - begin to processing year 2012 part 1
+2019-05-20 17:06:05,155 - merging - INFO - merging
+2019-05-20 17:07:26,190 - merging - INFO - merging year 2012 data
+2019-05-20 17:07:26,190 - merging - INFO - begin to processing year 2012 part 2
+2019-05-20 17:07:26,191 - merging - INFO - merging
+2019-05-20 17:08:59,089 - merging - INFO - merging year 2012 data
+2019-05-20 17:08:59,089 - merging - INFO - begin to processing year 2012 part 3
+2019-05-20 17:08:59,089 - merging - INFO - merging
+2019-05-20 17:10:34,575 - merging - INFO - merging year 2012 data
+2019-05-20 17:10:34,575 - merging - INFO - begin to processing year 2012 part 4
+2019-05-20 17:10:34,575 - merging - INFO - merging
+2019-05-20 17:12:41,779 - merging - INFO - merging year 2012 data
+2019-05-20 17:12:41,779 - merging - INFO - begin to processing year 2012 part 5
+2019-05-20 17:12:41,780 - merging - INFO - merging
+2019-05-20 17:14:53,736 - merging - INFO - merging year 2012 data
+2019-05-20 17:14:53,736 - merging - INFO - begin to processing year 2012 part 6
+2019-05-20 17:14:53,736 - merging - INFO - merging
+2019-05-20 17:16:37,939 - merging - INFO - merging year 2012 data
+2019-05-20 17:16:37,939 - merging - INFO - begin to processing year 2012 part 7
+2019-05-20 17:16:37,939 - merging - INFO - merging
+2019-05-20 17:18:10,172 - merging - INFO - merging year 2012 data
+2019-05-20 17:18:10,173 - merging - INFO - begin to processing year 2012 part 8
+2019-05-20 17:18:10,173 - merging - INFO - merging
+2019-05-20 17:19:43,139 - merging - INFO - merging year 2012 data
+2019-05-20 17:19:43,139 - merging - INFO - begin to processing year 2012 part 9
+2019-05-20 17:19:43,139 - merging - INFO - merging
+2019-05-20 17:21:16,429 - merging - INFO - merging year 2012 data
+2019-05-20 17:21:16,429 - merging - INFO - begin to processing year 2012 part 10
+2019-05-20 17:21:16,429 - merging - INFO - merging
+2019-05-20 17:23:55,671 - merging - INFO - merging year 2012 data
+2019-05-20 17:23:55,671 - merging - INFO - begin to processing year 2012 part 11
+2019-05-20 17:23:55,671 - merging - INFO - merging
+2019-05-20 17:26:07,719 - merging - INFO - merging year 2012 data
+2019-05-20 17:26:07,719 - merging - INFO - begin to processing year 2012 part 12
+2019-05-20 17:26:07,720 - merging - INFO - merging
+2019-05-20 17:29:24,144 - merging - INFO - merging year 2012 data
+2019-05-20 17:29:24,145 - merging - INFO - begin to processing year 2012 part 13
+2019-05-20 17:29:24,145 - merging - INFO - merging
+2019-05-20 17:31:38,457 - merging - INFO - merging year 2012 data
+2019-05-20 17:31:38,457 - merging - INFO - begin to processing year 2012 part 14
+2019-05-20 17:31:38,457 - merging - INFO - merging
+2019-05-20 17:33:32,366 - merging - INFO - merging year 2012 data
+2019-05-20 17:33:32,366 - merging - INFO - begin to processing year 2012 part 15
+2019-05-20 17:33:32,367 - merging - INFO - merging
+2019-05-20 17:35:14,876 - merging - INFO - merging year 2012 data
+2019-05-20 17:35:14,877 - merging - INFO - begin to processing year 2012 part 16
+2019-05-20 17:35:14,877 - merging - INFO - merging
+2019-05-20 17:37:01,441 - merging - INFO - merging year 2012 data
+2019-05-20 17:37:01,441 - merging - INFO - begin to processing year 2012 part 17
+2019-05-20 17:37:01,441 - merging - INFO - merging
+2019-05-20 17:39:32,282 - merging - INFO - merging year 2012 data
+2019-05-20 17:39:32,282 - merging - INFO - begin to processing year 2012 part 18
+2019-05-20 17:39:32,282 - merging - INFO - merging
+2019-05-20 17:41:11,777 - merging - INFO - merging year 2012 data
+2019-05-20 17:41:11,778 - merging - INFO - begin to processing year 2012 part 19
+2019-05-20 17:41:11,778 - merging - INFO - merging
+2019-05-20 17:42:57,647 - merging - INFO - merging year 2012 data
+2019-05-20 17:42:57,647 - merging - INFO - begin to processing year 2012 part 20
+2019-05-20 17:42:57,648 - merging - INFO - merging
+2019-05-20 17:44:34,379 - merging - INFO - merging year 2012 data
+2019-05-20 17:44:34,380 - merging - INFO - begin to processing year 2012 part 21
+2019-05-20 17:44:34,380 - merging - INFO - merging
+2019-05-20 17:46:15,032 - merging - INFO - merging year 2012 data
+2019-05-20 17:46:15,032 - merging - INFO - begin to processing year 2012 part 22
+2019-05-20 17:46:15,032 - merging - INFO - merging
+2019-05-20 17:47:52,361 - merging - INFO - merging year 2012 data
+2019-05-20 17:47:52,361 - merging - INFO - begin to processing year 2012 part 23
+2019-05-20 17:47:52,361 - merging - INFO - merging
+2019-05-20 17:48:50,918 - merging - INFO - giving the subset of dataframe
+2019-05-20 17:48:50,918 - merging - INFO - merging year 2012 data
+2019-05-20 17:48:50,919 - merging - INFO - begin to processing year 2012 part 1
+2019-05-20 17:48:50,919 - merging - INFO - merging
+2019-05-20 17:49:23,354 - merging - INFO - giving the subset of dataframe
+2019-05-20 17:49:23,355 - merging - INFO - merging year 2012 data
+2019-05-20 17:49:23,355 - merging - INFO - begin to processing year 2012 part 1
+2019-05-20 17:49:23,355 - merging - INFO - merging
+2019-05-20 17:49:46,412 - merging - INFO - giving the subset of dataframe
+2019-05-20 17:49:46,413 - merging - INFO - merging year 2012 data
+2019-05-20 17:49:46,413 - merging - INFO - begin to processing year 2012 part 1
+2019-05-20 17:49:46,413 - merging - INFO - merging
+2019-05-20 17:51:18,363 - merging - INFO - merging year 2012 data
+2019-05-20 17:51:18,363 - merging - INFO - begin to processing year 2012 part 2
+2019-05-20 17:51:18,363 - merging - INFO - merging
+2019-05-20 17:52:51,778 - merging - INFO - merging year 2012 data
+2019-05-20 17:52:51,778 - merging - INFO - begin to processing year 2012 part 3
+2019-05-20 17:52:51,778 - merging - INFO - merging
+2019-05-20 17:54:24,940 - merging - INFO - merging year 2012 data
+2019-05-20 17:54:24,940 - merging - INFO - begin to processing year 2012 part 4
+2019-05-20 17:54:24,940 - merging - INFO - merging
+2019-05-20 17:57:12,007 - merging - INFO - merging year 2012 data
+2019-05-20 17:57:12,007 - merging - INFO - begin to processing year 2012 part 5
+2019-05-20 17:57:12,007 - merging - INFO - merging
+2019-05-20 17:58:44,949 - merging - INFO - merging year 2012 data
+2019-05-20 17:58:44,949 - merging - INFO - begin to processing year 2012 part 6
+2019-05-20 17:58:44,949 - merging - INFO - merging
+2019-05-20 18:00:35,801 - merging - INFO - merging year 2012 data
+2019-05-20 18:00:35,801 - merging - INFO - begin to processing year 2012 part 7
+2019-05-20 18:00:35,801 - merging - INFO - merging
+2019-05-20 18:02:51,455 - merging - INFO - merging year 2012 data
+2019-05-20 18:02:51,456 - merging - INFO - begin to processing year 2012 part 8
+2019-05-20 18:02:51,456 - merging - INFO - merging
+2019-05-20 18:05:37,679 - merging - INFO - merging year 2012 data
+2019-05-20 18:05:37,679 - merging - INFO - begin to processing year 2012 part 9
+2019-05-20 18:05:37,680 - merging - INFO - merging
+2019-05-20 18:07:13,436 - merging - INFO - merging year 2012 data
+2019-05-20 18:07:13,437 - merging - INFO - begin to processing year 2012 part 10
+2019-05-20 18:07:13,437 - merging - INFO - merging
+2019-05-20 18:11:46,464 - merging - INFO - merging year 2012 data
+2019-05-20 18:11:46,464 - merging - INFO - begin to processing year 2012 part 11
+2019-05-20 18:11:46,465 - merging - INFO - merging
+2019-05-20 18:14:26,832 - merging - INFO - merging year 2012 data
+2019-05-20 18:14:26,832 - merging - INFO - begin to processing year 2012 part 12
+2019-05-20 18:14:26,832 - merging - INFO - merging
+2019-05-20 18:17:59,837 - merging - INFO - merging year 2012 data
+2019-05-20 18:17:59,837 - merging - INFO - begin to processing year 2012 part 13
+2019-05-20 18:17:59,837 - merging - INFO - merging
+2019-05-20 18:21:36,453 - merging - INFO - merging year 2012 data
+2019-05-20 18:21:36,453 - merging - INFO - begin to processing year 2012 part 14
+2019-05-20 18:21:36,453 - merging - INFO - merging
+2019-05-20 18:24:54,258 - merging - INFO - merging year 2012 data
+2019-05-20 18:24:54,258 - merging - INFO - begin to processing year 2012 part 15
+2019-05-20 18:24:54,258 - merging - INFO - merging
+2019-05-20 18:28:27,469 - merging - INFO - merging year 2012 data
+2019-05-20 18:28:27,469 - merging - INFO - begin to processing year 2012 part 16
+2019-05-20 18:28:27,469 - merging - INFO - merging
+2019-05-20 18:31:59,834 - merging - INFO - merging year 2012 data
+2019-05-20 18:31:59,834 - merging - INFO - begin to processing year 2012 part 17
+2019-05-20 18:31:59,834 - merging - INFO - merging
+2019-05-20 18:33:33,653 - merging - INFO - merging year 2012 data
+2019-05-20 18:33:33,653 - merging - INFO - begin to processing year 2012 part 18
+2019-05-20 18:33:33,653 - merging - INFO - merging
+2019-05-20 18:35:05,740 - merging - INFO - merging year 2012 data
+2019-05-20 18:35:05,740 - merging - INFO - begin to processing year 2012 part 19
+2019-05-20 18:35:05,740 - merging - INFO - merging
+2019-05-20 18:36:36,822 - merging - INFO - merging year 2012 data
+2019-05-20 18:36:36,822 - merging - INFO - begin to processing year 2012 part 20
+2019-05-20 18:36:36,822 - merging - INFO - merging
+2019-05-20 18:38:13,426 - merging - INFO - merging year 2012 data
+2019-05-20 18:38:13,426 - merging - INFO - begin to processing year 2012 part 21
+2019-05-20 18:38:13,426 - merging - INFO - merging
+2019-05-30 08:45:58,616 - merging - INFO - giving the subset of dataframe
+2019-05-30 08:45:58,631 - merging - INFO - merging year 2008 data
+2019-05-30 08:45:58,631 - merging - INFO - begin to processing year 2008 part 1
+2019-05-30 08:45:58,631 - merging - INFO - merging
+2019-05-30 09:57:58,491 - merging - INFO - giving the subset of dataframe
+2019-05-30 09:57:58,492 - merging - INFO - merging year 2009 data
+2019-05-30 09:57:58,492 - merging - INFO - begin to processing year 2009 part 1
+2019-05-30 09:57:58,492 - merging - INFO - merging
+2019-05-30 11:30:23,743 - merging - INFO - giving the subset of dataframe
+2019-05-30 11:30:23,744 - merging - INFO - merging year 2010 data
+2019-05-30 11:30:23,744 - merging - INFO - begin to processing year 2010 part 1
+2019-05-30 11:30:23,744 - merging - INFO - merging

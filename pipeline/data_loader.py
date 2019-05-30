@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''
-Load data from web
+Get the data from the web
 '''
 from sodapy import Socrata
 import pandas as pd
@@ -136,6 +136,6 @@ def get_crime(start_year, end_year):
     client.close()
     df = pd.DataFrame.from_records(res)
     #df['date'] = pd.to_datetime(df['date'])
-    #df = df[df.primary_type.isin(crime_type)]
+    df = df[df.primary_type.isin(crime_type)]
     df = df.astype(COL_TYPES)
     return df

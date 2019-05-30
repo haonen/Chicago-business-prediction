@@ -1,5 +1,5 @@
 '''
-Feature generateion from the crime, 311, business, acs data 
+Aggreate the crime data by year and type 
 '''
 
 import data_loader as lo
@@ -23,8 +23,6 @@ logger.addHandler(ch)
 logger.addHandler(fh)
 logger.setLevel(logging.INFO)
 
-
-
 def process(args):
     filename = args.filename
     df =  pd.read_csv(filename)
@@ -34,7 +32,7 @@ def process(args):
     res.rename(columns = {'block':'count'},inplace=True)
     res.to_csv(str(args.year) + '_res.csv')
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='pass file and year')
+    parser = argparse.ArgumentParser(description='pass year and number of data')
     parser.add_argument('--file', dest='filename', type=str, default='2013.csv')
     parser.add_argument('--year', dest ='year', type=int, default =2013)
     args = parser.parse_args()

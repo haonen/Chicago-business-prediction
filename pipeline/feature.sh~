@@ -1,0 +1,8 @@
+!#/bin/bash
+
+python3 gen_features.py --filename 2013.csv 2013
+python3 gen_features.py --filename 2014.csv 2014
+python3 gen_features.py --filename 2015.csv 2015
+python3 gen_features.py --filename 2016.csv 2016
+python3 gen_features.py --filename 2017.csv 2017
+python3 gen_features.py --filename 2018.csv 2018
