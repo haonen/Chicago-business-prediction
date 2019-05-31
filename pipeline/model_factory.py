@@ -30,24 +30,21 @@ logger.addHandler(fh)
 logger.setLevel(logging.INFO)
 
 
-def get_models(file):
+def get_models(config):
     '''
     model factory generate the next aviable model 
     from the config file
     
     Input: 
-        file:  the yml file that used to generate the models
+        config: with the key as the name of the model, value as the parameters
     Return:
         A iterable of models
     ''' 
     logger.info('begin to generate the models')
-    with open(file) as config_file:
-        config = yaml.safe_load(config_file)['models']
-        for (name, params) in config.items():
-            pdb.set_trace()
-            constructor = globals()[name]
-            models = [constructor(**dict(zip(params.keys(),vals))) for vals in product(*params.values())]
-            for model in models:
-                logger.info('{} is delivering out'.format(model))
-                yield model
+    for (name, params) in config.items():
+        constructor = globals()[name]
+        models = [constructor(**dict(zip(params.keys(),vals))) for vals in product(*params.values())]
+        for model in models:
+            logger.info('{} is delivering out'.format(model))
+            yield model
 
