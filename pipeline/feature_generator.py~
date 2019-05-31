@@ -1,18 +1,8 @@
 '''
-Model factory for the pipeline
+feature generator for the pipeline
+Pengwei
 '''
-from sklearn.ensemble import BaggingClassifier
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.svm import LinearSVC
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.neighbors import KNeighborsClassifier
-import yaml
-from collections import OrderedDict
-from itertools import product
+import pandas as pd
 import logging
 import sys
 import numpy as np
@@ -20,9 +10,9 @@ import argparse
 import os
 import pdb
 
-logger = logging.getLogger('generating models')
+logger = logging.getLogger('generating features from the data')
 ch = logging.StreamHandler(sys.stdout)
-fh = logging.FileHandler('./log/debug.log')
+fh = logging.FileHandler('../log/debug.log')
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
 fh.setFormatter(formatter)
@@ -30,14 +20,13 @@ logger.addHandler(ch)
 logger.addHandler(fh)
 logger.setLevel(logging.INFO)
 
-
-def get_models(config):
+def binnize(df, ):
     '''
     model factory generate the next aviable model 
     from the config file
     
     Input: 
-        config: OrdedDict with the key as the name of the model, value as the parameters 
+        config: dict from , value as the parameters
     Return:
         A iterable of models
     ''' 
@@ -49,3 +38,5 @@ def get_models(config):
             logger.info('{} is delivering out'.format(model))
             yield model
 
+
+def 
