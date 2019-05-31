@@ -24,19 +24,19 @@ def read_ACS(year_list, table_dict, unemp_dict):
 
             else:
                 table_name = t_name + str(year)
-                df = pd.read_csv(r"ACS_final\ACS_" + str(year) + "_" + \
+                df = pd.read_csv(r"..\data\ACS_final\ACS_" + str(year) + "_" + \
                                  value["table"] + "_" + t_name + ".csv")
                 data_dict[table_name] = [df.iloc[1:], value]
 
         if year <= 14:
             emp_table_name = "unemployment_rate" + str(year)
-            df = pd.read_csv(r"ACS_final\ACS_" + str(year) + "_" + \
+            df = pd.read_csv(r"..\data\ACS_final\ACS_" + str(year) + "_" + \
                                  unemp_dict["unemployment_rate"]["table"] + "_" + "unemployment_rate" + ".csv")
             data_dict[emp_table_name] = [df.iloc[1:], unemp_dict["unemployment_rate"]]
 
         else:
             emp_table_name = "unemployment_rate" + str(year)
-            df = pd.read_csv(r"ACS_final\ACS_" + str(year) + "_" + \
+            df = pd.read_csv(r"..\data\ACS_final\ACS_" + str(year) + "_" + \
                                  unemp_dict["unemployment_rate2"]["table"] + "_" + "unemployment_rate" + ".csv")
             data_dict[emp_table_name] = [df.iloc[1:], unemp_dict["unemployment_rate2"]]
 
@@ -89,19 +89,19 @@ def ACS_do(year_list, table_dict, unemp_dict):
     return full_df
 
 full_df = ACS_do([12,13,14,15,16,17], table_dict, unemp_dict)
-full_df.to_csv("ACS_final\ACS_full.csv")
+full_df.to_csv(r"..\data\ACS_final\ACS_full.csv")
 
 
 ##################################################################################################################################
 # preprocess data before 2011
 
-total_population11 = pd.read_csv("ACS_final\ACS_11_B01003_total_population.csv")
-median_household_income11 = pd.read_csv("ACS_final\ACS_11_B19013_median_household_income.csv")
-gini_index11 = pd.read_csv("ACS_final\ACS_11_B19083_gini_index.csv")
-same_house11 = pd.read_csv("ACS_final\ACS_11_B07012_same_house.csv")
-unemployment_rate11 = pd.read_csv("ACS_final\ACS_11_S2301_unemployment_rate.csv")
-poverty_rate12 = pd.read_csv("ACS_final\ACS_12_S1701_poverty_rate.csv")
-health_coverage_population12 = pd.read_csv("ACS_final\ACS_12_B992701_health_coverage_population.csv")
+total_population11 = pd.read_csv(r"..\data\ACS_final\ACS_11_B01003_total_population.csv")
+median_household_income11 = pd.read_csv(r"..\data\ACS_final\ACS_11_B19013_median_household_income.csv")
+gini_index11 = pd.read_csv(r"..\data\ACS_final\ACS_11_B19083_gini_index.csv")
+same_house11 = pd.read_csv(r"..\data\ACS_final\ACS_11_B07012_same_house.csv")
+unemployment_rate11 = pd.read_csv(r"..\data\ACS_final\ACS_11_S2301_unemployment_rate.csv")
+poverty_rate12 = pd.read_csv(r"..\data\ACS_final\ACS_12_S1701_poverty_rate.csv")
+health_coverage_population12 = pd.read_csv(r"..\data\ACS_final\ACS_12_B992701_health_coverage_population.csv")
 
 total_population11 = total_population11[["GEO.id2", "HD01_VD01"]].rename(columns={"GEO.id2":"zip code", "HD01_VD01":"total_population"})
 median_household_income11 = median_household_income11[["GEO.id2", "HD01_VD01"]].rename(columns={"GEO.id2":"zip code", "HD01_VD01":"median_household_income"})
@@ -123,14 +123,14 @@ for year in [2008,2009,2010,2011]:
     final11["year"] = year
     final_data11 = pd.concat([final_data11, final11], join="inner")
 
-final_data11.to_csv("ACS_final\ACS_08-11.csv")
+final_data11.to_csv(r"..\data\ACS_final\ACS_08-11.csv")
 
 
 ######################################################################################################################################
 # Integrate all data
 
-full_data12 = pd.read_csv("ACS_final\ACS_full.csv")
-full_data08 = pd.read_csv("ACS_final\ACS_08-11.csv")
+full_data12 = pd.read_csv(r"..\data\ACS_final\ACS_full.csv")
+full_data08 = pd.read_csv(r"..\data\ACS_final\ACS_08-11.csv")
 sub_dat12 = full_data12[full_data12.year==12][["zipcode", "same_house"]]
 sub_dat13 = full_data12[full_data12.year==13].drop(["same_house"], axis=1)
 new_13 = pd.merge(sub_dat12, sub_dat13, left_on="zipcode", right_on="zipcode")
@@ -142,5 +142,5 @@ full_data08 = full_data08.iloc[1:]
 full_data = pd.concat([full_data08, full_data12], join="inner")
 full_data = full_data.drop(["Unnamed: 0"], axis=1)
 
-full_data.to_csv("ACS_final\ACS_full08-17.csv")
+full_data.to_csv(r"..\data\ACS_final\ACS_full08-17.csv")
 
