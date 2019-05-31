@@ -12,7 +12,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from yaml
-from collections import PriorityQueue 
+import heapq
 
 class model_factory():
     '''
