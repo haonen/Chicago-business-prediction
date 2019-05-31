@@ -32,13 +32,12 @@ def import_geometries(ds_id, proj=None):
                      'E0eO5nY1aKuEY1pVrunfqFhDz',
                      username='pengwei715@gmail.com', password='1QAZ2wsx3edc')
 
-    files = client.get(ds_id)
+    files = client.get(ZIPCODES_ID)
     df = pd.DataFrame(files)
     df['the_geom'] = df.the_geom.apply(shapely.geometry.shape)
     df = geo_pd.GeoDataFrame(df, geometry='the_geom')
     df.crs = proj
     df.drop(['shape_area', 'shape_len'], axis=1, inplace=True)
-
     return df
 
 def link_neighs_zips():
