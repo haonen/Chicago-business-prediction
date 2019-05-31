@@ -1,6 +1,5 @@
 '''
-Model class for the pipeline
-credit to satejsoman
+Model factory for the pipeline
 '''
 from sklearn.ensemble import BaggingClassifier
 from sklearn.ensemble import GradientBoostingClassifier
@@ -11,23 +10,44 @@ from sklearn.svm import LinearSVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
-from yaml
-import heapq
+import yaml
+from itertools import product
+import logging
+import sys
+import numpy as np
+import argparse
+import os
+import pdb
 
-class model_factory():
+logger = logging.getLogger('generating models')
+ch = logging.StreamHandler(sys.stdout)
+fh = logging.FileHandler('../log/debug.log')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+ch.setFormatter(formatter)
+fh.setFormatter(formatter)
+logger.addHandler(ch)
+logger.addHandler(fh)
+logger.setLevel(logging.INFO)
+
+
+def get_models(file):
     '''
-    model factory generate the next aviable model
+    model factory generate the next aviable model 
+    from the config file
+    
+    Input: 
+        file:  the yml file that used to generate the models
+    Return:
+        A iterable of models
     ''' 
-    def __init__(self, file = None):
-        default_models =  Queue()
-        if not file:
-           for models in default_models:
-               for model in models:
-                   yield model
-        else:
-            with open('config.yaml') as config_file:
-                config = yaml.safe_load(config_file)
-                for (model, params) in config_dict.items():
-                    constructor = globals()[model]
-                    model_parameters += [{generate_name(model, params.keys(), vals): constructor(**dict(zip(params.keys(), vals)))} for vals in product(*params.values())]
-        return Grid(model_parameters)
+    logger.info('begin to generate the models')
+    with open(file) as config_file:
+        config = yaml.safe_load(config_file)['models']
+        for (name, params) in config.items():
+            pdb.set_trace()
+            constructor = globals()[name]
+            models = [constructor(**dict(zip(params.keys(),vals))) for vals in product(*params.values())]
+            for model in models:
+                logger.info('{} is delivering out'.format(model))
+                yield model
+
