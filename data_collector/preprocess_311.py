@@ -12,10 +12,16 @@ import numpy as np
 import argparse
 import os
 
+
 logger = logging.getLogger('preprocessing 311 data')
-
-
-
+ch = logging.StreamHandler(sys.stdout)
+fh = logging.FileHandler('../log/debug.log')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+ch.setFormatter(formatter)
+fh.setFormatter(formatter)
+logger.addHandler(ch)
+logger.addHandler(fh)
+logger.setLevel(logging.INFO)
 
 
 DATA_IDS = {'Alley Lights Out': 't28b-ys7j', 'Tree Debris': 'mab8-y9h3',\
@@ -35,6 +41,7 @@ def process_311(data_ids):
     Returns:
         (dataframe) of different type of 311 complaint
     '''
+    logger.info('start to merge the data')
     merged_df = pd.DataFrame(columns=['zip_code','year']) 
     for c, d_id in data_ids.items():
         df = dl.get_311(d_id)
@@ -58,6 +65,7 @@ def calculate_completion_rate(df, complaint):
     Returns:
         (dataframe) of each complaint type with completion rate
     '''
+    logger.info('start to calculate the rates')
     col_name_1 = complaint + '_completed'
     df[col_name_1] = df['completion_date'].apply(lambda x: 0 if pd.isnull(x) else 1)
     df_complete = df.groupby(['zip_code', 'year'])[col_name_1]\
@@ -73,7 +81,7 @@ def calculate_completion_rate(df, complaint):
     return merged_df
 
 
-df = process_311(DATA_IDS)
-df.to_csv('311.csv', sep=',')
-
-
+if __name__ == "__main__":
+    logger.info('begin to preprocessing the 311 data')
+    df = process_311(DATA_IDS)
+    df.to_csv('311.csv', sep=',')    

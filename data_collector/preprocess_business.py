@@ -7,6 +7,17 @@ import pandas as pd
 import numpy as np
 
 
+logger = logging.getLogger('preprocessing business data')
+ch = logging.StreamHandler(sys.stdout)
+fh = logging.FileHandler('./log/debug.log')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+ch.setFormatter(formatter)
+fh.setFormatter(formatter)
+logger.addHandler(ch)
+logger.addHandler(fh)
+logger.setLevel(logging.INFO)
+
+
 def read_data(path, indexcol, datecol, datatype):
     df = pd.read_csv(path, index_col=indexcol, parse_dates=datecol, dtype=datatype)
     return df
@@ -133,3 +144,27 @@ def rename_cols(df):
         ncol = ncol.replace('_', ' ')
         df = df.rename(columns={col: ncol})
     return df
+
+
+
+def run(args):
+    #aggreate all above here
+    
+
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=
+       'Preprocessing the business data,'
+       'it contains get data, '
+       'transfrom data into geo data,'
+       'spaical join with the zipcode geo coundaries,' 
+       'Aggregate the data to get the useful information')
+    parser.add_argument('--crime_file', dest='crime_file', type=int, default=2008,
+        help='crime file that used for merging')
+    parser.add_argument('--311_file', dest='311_file', type=int, default=2017,
+        help='311 file that used for merging')
+    parser.add_argument('--save_file', help='The csv file to save',default='dataset/total.csv')
+    args = parser.parse_args()
+    run(args)
+
