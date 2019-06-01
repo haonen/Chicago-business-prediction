@@ -4,15 +4,21 @@ io:
   pr_path: "./output/pr/"
   out_path: "./output/performance.csv"
 
-x_cols: ["zip code", "theft", "street lights"]
-y_col: "license death"
-time_col: "year"
+cols:
+  x_cols: ["zip code", "ward", "theft", "street lights"]
+  y_col: ["license death"]
+  time_col: ["year"]
 
 transform:
   dummy:
     - cols : ["zip code"]
+    - k: [30]
   imputation: 
-    - meancols: ["theft"] 
+    - cols: ["zip code"] 
+    - loc_col: ["ward"]
+    - time_col: ["year"]
+  scaling:
+    - cols: ['theft']
 
 models:
   LogisticRegression:
@@ -26,4 +32,8 @@ time:
   update_period: 2
   test_period:2
 
+
+matrix:
+  auc-roc: True
+  
 percentage: 30
