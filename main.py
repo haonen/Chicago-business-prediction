@@ -50,7 +50,7 @@ def run(config):
     time_config = configs['time']
     trans_configs = configs['transform']
     model_configs = configs['models']
-    matrix_config = configs['matrix']
+    matrix_configs = configs['matrix']
     count = 1
     for data in split(cols_config, time_config, df):
         X_train, X_test, Y_train, Y_test = data
@@ -59,11 +59,12 @@ def run(config):
             logger.info('start to run the model {}'.format(model))
             model.fit(X_train, Y_train)
             if name == 'LinearSVC':
-               model.decision_function(X_test)
+               y_pred_probs = model.decision_function(X_test)
             else:
-                model.predict_proba(X_test)[:, 1]
-        
-
+               y_pred_probs = model.predict_proba(X_test)[:, 1]
+            results_df = pd.DataFrame(columns=matrix_configs['col_list'])
+            get_matrix(results_df, y_pred_probs, y_test, name, model, count, matrix_configs)
+        results_df.to_csv(matrix_configs['out_path'] + str(count) + ".csv")
 
         count += 1
 
@@ -82,8 +83,27 @@ def split(cols_config, time_config, df):
         yield X_train, X_test, y_train, y_test
 
 
-def get_matrix(matrix_config):
-    
+def get_matrix(results_df, y_pred_probs, y_test, name, model, count, matrix_configs):
+	# Sort true y labels and predicted scores at the same time
+    y_pred_probs_sorted, y_test_sorted = zip(*sorted(zip(y_pred_probs, y_test), reverse=True))
+    # Write the evaluation results into data frame
+    record = [name, str(model),
+	          evaluation.precision_at_k(y_test_sorted, y_pred_probs_sorted, 100),
+              evaluation.compute_acc(y_test_sorted, y_pred_probs_sorted, threshold),
+              evaluation.compute_f1(y_test_sorted, y_pred_probs_sorted, threshold),
+              evaluation.compute_auc_roc(y_test_sorted, y_pred_probs_sorted, threshold)]
+
+    threshold_list = [1, 2, 5, 10, 20, 30, 50]
+    for t in threshold_list:
+    	record.append(evaluation.precision_at_k(y_test_sorted, y_pred_probs_sorted, t))
+    	record.append(evaluation.recall_at_k(y_test_sorted, y_pred_probs_sorted, t))
+    results_df.loc[len(results_df)] = record
+
+    graph_name_pr = matrix_configs['pr_path'] + 'precision_recall_curve of ' + model + str(count)
+    plot_precision_recall_n(y_test, y_pred_probs, clf, graph_name_pr, 'save')
+    graph_name_roc = matrix_configs['roc_path'] + 'roc_curve of ' + model + str(count)
+    plot_roc(clf, graph_name_roc, y_pred_probs, y_test, 'save')
+
     pass
 
 
