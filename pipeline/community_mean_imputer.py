@@ -116,3 +116,4 @@ class community_mean_imputer:
                     condition = ((test_df[column].isnull()) & (test_df[loc_column] == loc) & (
                                 test_df[time_column] == year))
                     test_df.loc[condition, column] = self.trained_imp[(loc, year - 4)][column]
+        return test_df
