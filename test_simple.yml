@@ -21,7 +21,7 @@ models:
     n_jobs: [-1]
 
 time:
-  start_year: 2012
+  start_year: 2009
   end_year: 2018
   update_period: 2
   test_period:2
