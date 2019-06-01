@@ -2,7 +2,7 @@ io:
   input_path: "../data/full_dataset.csv"
   roc_path: "../output/roc/"
   pr_path: "../output/pr/"
-  out_path: "../output/performance.csv"
+  out_path: "../output/performance/"
 
 cols:
   x_cols:  ['gini index', 'health coverage population per capita', 'median household income', 'poverty rate per capita',

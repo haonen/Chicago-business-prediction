@@ -1,15 +1,17 @@
 '''
 Main function for the pipeline
 '''
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import BaggingClassifier
 from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import LinearSVC
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.neighbors import KNeighborsClassifier
+
 import yaml
 from collections import OrderedDict
 from itertools import product
@@ -48,35 +50,40 @@ def run(config):
     time_config = configs['time']
     trans_configs = configs['transform']
     model_configs = configs['models']
+    matrix_config = configs['matrix']
+    count = 1
     for data in split(cols_config, time_config, df):
         X_train, X_test, Y_train, Y_test = data
         X_train, X_test = transformer.transform(trans_configs, X_train, X_test)
-        for model in model_factory.get_models(model_configs):
+        for name, model in model_factory.get_models(model_configs):
             logger.info('start to run the model {}'.format(model))
             model.fit(X_train, Y_train)
-            model.predict_proba(X_test)[:, 1]
+            if name == 'LinearSVC':
+               model.decision_function(X_test)
+            else:
+                model.predict_proba(X_test)[:, 1]
         
+
+
+        count += 1
 
 def split(cols_config, time_config, df):
     logger.info('starging to split the dataframe')
     X = df[cols_config['x_cols']]
-    y = df[cols_config['y_col']]
+    y = df[cols_config['y_col'][0]]
     min_year = time_config['start_year']
     max_year = time_config['end_year']
     for year in range(min_year + 1, max_year - 3, 2):
         X_train = X[X['year'] <= year]
         X_test = X[(X['year'] == year + 3) | (X['year'] == year + 4)]
-        y_train = y[X['year'] <= year].values
-        y_test = y[(X['year'] == year + 3) | (X['year'] == year + 4)].values
+        y_train = y[X['year'] <= year].ravel()
+        y_test = y[(X['year'] == year + 3) | (X['year'] == year + 4)].ravel()
         logger.info('delivering data to pipeline')
         yield X_train, X_test, y_train, y_test
 
 
-def get_matrix():
+def get_matrix(matrix_config):
     
-
-
-
     pass
 
 

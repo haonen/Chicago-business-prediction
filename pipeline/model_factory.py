@@ -49,5 +49,5 @@ def get_models(config):
         models = [constructor(**dict(zip(params.keys(),vals))) for vals in product(*params.values())]
         for model in models:
             logger.info('{} is delivering out'.format(model))
-            yield model
+            yield name, model
 
