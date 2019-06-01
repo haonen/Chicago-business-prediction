@@ -35,7 +35,8 @@ def get_miss_columns(full_df):
     return used_miss_list
 
 
-class community_mean_imputer:
+class community_mean_imputer():
+
     '''
     The class is designed to implement imputation with regional mean in given time
     '''
