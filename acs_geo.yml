@@ -67,7 +67,6 @@ time:
 
 matrix:
   percentage: 30
-  list_matrix: []
   col_list: ['model_name', 'parameters', 'baseline', 'accuarcy', 'f1',
              'auc_roc', 'precision_1%', 'recall_1%', 'precision_2%',
              'recall_2%', 'precision_5%', 'recall_5%', 'precision_10%',
