@@ -15,7 +15,7 @@ import os
 
 logger = logging.getLogger('preprocessing 311 data')
 ch = logging.StreamHandler(sys.stdout)
-fh = logging.FileHandler('../log/debug.log')
+fh = logging.FileHandler('../data_collector/log/debug.log')
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
 fh.setFormatter(formatter)
@@ -42,6 +42,7 @@ def process_311(data_ids):
         (dataframe) of different type of 311 complaint
     '''
     logger.info('start to merge the data')
+    pd.options.mode.chained_assignment = None 
     merged_df = pd.DataFrame(columns=['zip_code','year']) 
     for c, d_id in data_ids.items():
         df = dl.get_311(d_id)
@@ -49,10 +50,18 @@ def process_311(data_ids):
         ndf = calculate_completion_rate(df, c)
         merged_df = pd.merge(merged_df, ndf, how='outer',\
                     left_on=['zip_code','year'], right_on = ['zip_code','year'])
-    merged_df = merged_df.astype({"year": int})
-    processed_df = merged_df[(merged_df['year'] >= 2008) & (merged_df['year'] <= 2017)]
+    merged_df = merged_df.astype({'year': int})
+    processed_df = merged_df[(merged_df['year'] >= 2010) & (merged_df['year'] <= 2017)]
     processed_df = processed_df.fillna(0)
-    
+    processed_df = processed_df.astype({'zip_code': str})
+    processed_df = processed_df[processed_df['zip_code'] != '0']
+    # impute data of 2008 and 2009 using data of 2010
+    df_2010 = processed_df[processed_df['year'] == 2010]
+    for year in [2008, 2009]:
+        temp = df_2010.copy()
+        temp['year'] = year
+        processed_df = pd.concat([processed_df, temp])
+    processed_df = processed_df.reset_index(drop=True)
     return processed_df
 
 
@@ -84,4 +93,6 @@ def calculate_completion_rate(df, complaint):
 if __name__ == "__main__":
     logger.info('begin to preprocessing the 311 data')
     df = process_311(DATA_IDS)
-    df.to_csv('311.csv', sep=',')    
+    df.to_csv('311.csv', sep=',')
+
+
