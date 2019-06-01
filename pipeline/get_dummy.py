@@ -4,17 +4,7 @@ Get the dummies in the features generation stage
 
 import numpy as np
 import pandas as pd
-import logging
 
-logger = logging.getLogger('generating dummies')
-ch = logging.StreamHandler(sys.stdout)
-fh = logging.FileHandler('../log/debug.log')
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-ch.setFormatter(formatter)
-fh.setFormatter(formatter)
-logger.addHandler(ch)
-logger.addHandler(fh)
-logger.setLevel(logging.INFO)
 
 def get_all_dummies(X_train, X_test, colname):
     '''
@@ -29,7 +19,7 @@ def get_all_dummies(X_train, X_test, colname):
     # Get the categories from training data set
     cat_list = list(X_train[colname].value_counts().index.values)
     # create dummies
-    logger.info('generate the dummy on column {}'.format(colname))
+    # logger.info('generate the dummy on column {}'.format(colname))
     for cat in cat_list:
         X_test[cat] = np.where(X_test[colname] == cat, 1, 0)
         X_train[cat] = np.where(X_train[colname] == cat, 1, 0)
@@ -50,7 +40,7 @@ def get_top_k_dummies(X_train, X_test, colname, k):
     # get top k categories from train set
     top_k = X_train[colname].value_counts()[:k].index
     # create dummies
-    logger.info('generate dummies on column {} of top {} values'.format(colname, k))
+    #logger.info('generate dummies on column {} of top {} values'.format(colname, k))
     for cat in top_k:
         X_train[cat] = np.where(X_train[colname] == cat, 1, 0)
         X_test[cat] = np.where(X_test[colname] == cat, 1, 0)
@@ -72,7 +62,9 @@ def get_dummies(X_train, X_test, colname, k):
        Create dummies in both train and test set
     '''
     # Decide whether this use get all dummies or top k
-    if len(X_train[colname].value_counts()) <= k or colname=='zip code':
+    num_cat = len(X_train[colname].value_counts())
+    print(num_cat)
+    if num_cat <= k or colname=='zip code':
         get_all_dummies(X_train, X_test, colname)
     else:
          get_top_k_dummies(X_train, X_test, colname, k)       

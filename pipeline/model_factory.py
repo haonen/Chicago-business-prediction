@@ -32,7 +32,6 @@ logger.addHandler(ch)
 logger.addHandler(fh)
 logger.setLevel(logging.INFO)
 
-
 def get_models(config):
     '''
     model factory generate the next aviable model 
@@ -44,7 +43,8 @@ def get_models(config):
         A iterable of models
     ''' 
     logger.info('begin to generate the models')
-    for (name, params) in config.items():
+    pdb.set_trace()
+    for name, params in config.items():
         constructor = globals()[name]
         models = [constructor(**dict(zip(params.keys(),vals))) for vals in product(*params.values())]
         for model in models:

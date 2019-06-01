@@ -18,10 +18,13 @@ import sys
 import numpy as np
 import argparse
 import os
-from pipeline import *
+from pipeline import model_factory
+from pipeline import evaluation
+import transformer
+import pandas as pd
 import pdb
 
-logger = logging.getLogger('generating models')
+logger = logging.getLogger('main function')
 ch = logging.StreamHandler(sys.stdout)
 #fh = logging.FileHandler('../log/debug.log')
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -32,21 +35,49 @@ logger.addHandler(ch)
 logger.setLevel(logging.INFO)
 
 
-def run(args):
+def run(config):
     logger.info("starting to run the pipeline")
-    pdb.set_trace()
-    config = args.config
+    #pdb.set_trace()
+    #config = args.config
     with open (config) as config_file:
         configs = yaml.safe_load(config_file)
-    # 'input_file', 'roc_path', 'pr_path','out_path']
-    io_dic = configs['io']
-    x_cols = configs['x_cols']
-    y_col = configs['y_col']
-    time_col = configs['time_col']
-    # 'start_year', 'end_year', 'update_period', 'test_period'
-    time_dic = configs['time']
-    percentage = configs['percentage']
+    #'input_file', 'roc_path', 'pr_path','out_path'
 
+    df = pd.read_csv(configs['io']['input_path'])
+    cols_config = configs['cols']
+    time_config = configs['time']
+    trans_configs = configs['transform']
+    model_configs = configs['models']
+    for data in split(cols_config, time_config, df):
+        X_train, X_test, Y_train, Y_test = data
+        X_train, X_test = transformer.transform(trans_configs, X_train, X_test)
+        for model in model_factory.get_models(model_configs):
+            logger.info('start to run the model {}'.format(model))
+            model.fit(X_train, Y_train)
+            model.predict_proba(X_test)[:, 1]
+        
+
+def split(cols_config, time_config, df):
+    logger.info('starging to split the dataframe')
+    X = df[cols_config['x_cols']]
+    y = df[cols_config['y_col']]
+    min_year = time_config['start_year']
+    max_year = time_config['end_year']
+    for year in range(min_year + 1, max_year - 3, 2):
+        X_train = X[X['year'] <= year]
+        X_test = X[(X['year'] == year + 3) | (X['year'] == year + 4)]
+        y_train = y[X['year'] <= year].values
+        y_test = y[(X['year'] == year + 3) | (X['year'] == year + 4)].values
+        logger.info('delivering data to pipeline')
+        yield X_train, X_test, y_train, y_test
+
+
+def get_matrix():
+    
+
+
+
+    pass
 
 
 

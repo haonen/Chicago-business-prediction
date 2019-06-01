@@ -1,6 +1,6 @@
 #!/bin/sh
 
-wget https://uchicago.box.com/shared/static/ttnv2n2fxaqx4mop074xsauw6jmcf1od.zip -O full_dataset.zip 
+wget https://uchicago.box.com/shared/static/kc0jkv0m2e3cc9kbhuolcsnq5vo8sk8z.zip -O full_dataset.zip 
 
 unzip full_dataset.zip
 
