@@ -6,6 +6,7 @@ io:
 
 x_cols: ["zip code", "theft", "street lights"]
 y_col: "license death"
+time_col: "year"
 
 transform:
   dummy:
@@ -18,3 +19,9 @@ models:
     C: [0.1,0.2]
     penality: ["l2"]
     n_jobs: [-1]
+
+time:
+  start_year: 2012
+  end_year: 2018
+  update_period: 2
+  test_period:2
