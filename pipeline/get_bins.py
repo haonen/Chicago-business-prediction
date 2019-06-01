@@ -25,4 +25,4 @@ def binize(df, col, bins=None, labels=None):
         series = pd.qcut(df[col], q=len(labels), labels=labels)
     else:
         series = pd.qcut(df[col], q=bins, labels=labels)
-return series
+    return series

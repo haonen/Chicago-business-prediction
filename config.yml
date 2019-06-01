@@ -4,9 +4,9 @@ io:
   pr_path: "./output/pr/"
   out_path: "./output/performance.csv"
 
-cols:
-  x_cols:["zip code", "theft", ""]
-  y_col: "license death"
+
+x_cols:["zip code", "theft", ""]
+y_col: "license death"
 
 transform:
   bins: [""] 

@@ -50,13 +50,11 @@ def run(args):
 
 
 
-
-
-
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Do a simple machine learning pipeline, load data, split the data, transform data, build models, run models, get the performace matix results')
     parser.add_argument('--config', dest='config', help='config file for this run', default ='./test_simple.yml')
     args = parser.parse_args()
     run(args)
+
+
+
