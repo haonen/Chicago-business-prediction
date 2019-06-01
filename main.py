@@ -21,7 +21,7 @@ import numpy as np
 import argparse
 import os
 from pipeline import model_factory
-from pipeline import evaluation
+from pipeline import evaluator
 import transformer
 import pandas as pd
 import pdb
@@ -63,7 +63,8 @@ def run(config):
             else:
                y_pred_probs = model.predict_proba(X_test)[:, 1]
             results_df = pd.DataFrame(columns=matrix_configs['col_list'])
-            get_matrix(results_df, y_pred_probs, y_test, name, model, count, matrix_configs)
+            index = len(results_df)
+            results_df.loc[index] = get_matrix(results_df, y_pred_probs, y_test, name, model, count, matrix_configs)
         results_df.to_csv(matrix_configs['out_path'] + str(count) + ".csv")
         count += 1
 
@@ -82,30 +83,29 @@ def split(cols_config, time_config, df):
         yield X_train, X_test, y_train, y_test
 
 
-def get_matrix(results_df, y_pred_probs, y_test, name, model, count, matrix_configs):
+def get_matrix(results_df, y_pred_probs, y_test, name, model, count, index, matrix_configs):
     # Sort true y labels and predicted scores at the same time
     y_pred_probs_sorted, y_test_sorted = zip(*sorted(zip(y_pred_probs, y_test), reverse=True))
     # Write the evaluation results into data frame
     threshold = matrix_configs['percentage']
     record = [name, str(model),
-	          evaluation.precision_at_k(y_test_sorted, y_pred_probs_sorted, 100),
-              evaluation.compute_acc(y_test_sorted, y_pred_probs_sorted, threshold),
-              evaluation.compute_f1(y_test_sorted, y_pred_probs_sorted, threshold),
-              evaluation.compute_auc_roc(y_test_sorted, y_pred_probs_sorted, threshold)]
+	          evaluator.precision_at_k(y_test_sorted, y_pred_probs_sorted, 100),
+              evaluator.compute_acc(y_test_sorted, y_pred_probs_sorted, threshold),
+              evaluator.compute_f1(y_test_sorted, y_pred_probs_sorted, threshold),
+              evaluator.compute_auc_roc(y_test_sorted, y_pred_probs_sorted, threshold)]
 
     threshold_list = [1, 2, 5, 10, 20, 30, 50]
     for t in threshold_list:
-    	record.append(evaluation.precision_at_k(y_test_sorted, y_pred_probs_sorted, t))
-    	record.append(evaluation.recall_at_k(y_test_sorted, y_pred_probs_sorted, t))
-    results_df.loc[len(results_df)] = record
+    	record.append(evaluator.precision_at_k(y_test_sorted, y_pred_probs_sorted, t))
+    	record.append(evaluator.recall_at_k(y_test_sorted, y_pred_probs_sorted, t))
 
-    graph_name_pr = matrix_configs['pr_path'] + 'precision_recall_curve_{}_{}'.format(model,count)
-    pdb.set_trace()
-    evaluation.plot_precision_recall_n(y_test, y_pred_probs, str(model), graph_name_pr, 'save')
-    graph_name_roc = matrix_configs['roc_path'] + 'roc_curve__{}_{}'.format(model,count)
-    evaluation.plot_roc(str(model), graph_name_roc, y_pred_probs, y_test, 'save')
+    graph_name_pr = matrix_configs['pr_path'] + r'''precision_recall_curve_{}_{}_{}'''.format(name,count,index)
+    #pdb.set_trace()
+    evaluator.plot_precision_recall_n(y_test, y_pred_probs, str(model), graph_name_pr, 'save')
+    graph_name_roc = matrix_configs['roc_path'] + r'''roc_curve__{}_{}_{}'''.format(name,count,index)
+    evaluator.plot_roc(str(model), graph_name_roc, y_pred_probs, y_test, 'save')
 
-
+    return record
 
 
 if __name__ == "__main__":
