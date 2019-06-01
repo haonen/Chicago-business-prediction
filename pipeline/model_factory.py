@@ -43,7 +43,7 @@ def get_models(config):
         A iterable of models
     ''' 
     logger.info('begin to generate the models')
-    pdb.set_trace()
+    #pdb.set_trace()
     for name, params in config.items():
         constructor = globals()[name]
         models = [constructor(**dict(zip(params.keys(),vals))) for vals in product(*params.values())]

@@ -53,11 +53,11 @@ def run(config):
     matrix_configs = configs['matrix']
     count = 1
     for data in split(cols_config, time_config, df):
-        X_train, X_test, Y_train, Y_test = data
+        X_train, X_test, y_train, y_test = data
         X_train, X_test = transformer.transform(trans_configs, X_train, X_test)
         for name, model in model_factory.get_models(model_configs):
             logger.info('start to run the model {}'.format(model))
-            model.fit(X_train, Y_train)
+            model.fit(X_train, y_train)
             if name == 'LinearSVC':
                y_pred_probs = model.decision_function(X_test)
             else:
@@ -65,7 +65,6 @@ def run(config):
             results_df = pd.DataFrame(columns=matrix_configs['col_list'])
             get_matrix(results_df, y_pred_probs, y_test, name, model, count, matrix_configs)
         results_df.to_csv(matrix_configs['out_path'] + str(count) + ".csv")
-
         count += 1
 
 def split(cols_config, time_config, df):
@@ -84,9 +83,10 @@ def split(cols_config, time_config, df):
 
 
 def get_matrix(results_df, y_pred_probs, y_test, name, model, count, matrix_configs):
-	# Sort true y labels and predicted scores at the same time
+    # Sort true y labels and predicted scores at the same time
     y_pred_probs_sorted, y_test_sorted = zip(*sorted(zip(y_pred_probs, y_test), reverse=True))
     # Write the evaluation results into data frame
+    threshold = matrix_configs['percentage']
     record = [name, str(model),
 	          evaluation.precision_at_k(y_test_sorted, y_pred_probs_sorted, 100),
               evaluation.compute_acc(y_test_sorted, y_pred_probs_sorted, threshold),
@@ -99,12 +99,12 @@ def get_matrix(results_df, y_pred_probs, y_test, name, model, count, matrix_conf
     	record.append(evaluation.recall_at_k(y_test_sorted, y_pred_probs_sorted, t))
     results_df.loc[len(results_df)] = record
 
-    graph_name_pr = matrix_configs['pr_path'] + 'precision_recall_curve of ' + model + str(count)
-    plot_precision_recall_n(y_test, y_pred_probs, clf, graph_name_pr, 'save')
-    graph_name_roc = matrix_configs['roc_path'] + 'roc_curve of ' + model + str(count)
-    plot_roc(clf, graph_name_roc, y_pred_probs, y_test, 'save')
+    graph_name_pr = matrix_configs['pr_path'] + 'precision_recall_curve_{}_{}'.format(model,count)
+    pdb.set_trace()
+    evaluation.plot_precision_recall_n(y_test, y_pred_probs, str(model), graph_name_pr, 'save')
+    graph_name_roc = matrix_configs['roc_path'] + 'roc_curve__{}_{}'.format(model,count)
+    evaluation.plot_roc(str(model), graph_name_roc, y_pred_probs, y_test, 'save')
 
-    pass
 
 
 
@@ -113,6 +113,3 @@ if __name__ == "__main__":
     parser.add_argument('--config', dest='config', help='config file for this run', default ='./test_simple.yml')
     args = parser.parse_args()
     run(args)
-
-
-
