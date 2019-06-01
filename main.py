@@ -38,9 +38,21 @@ def run(args):
     config = args.config
     with open (config) as config_file:
         configs = yaml.safe_load(config_file)
-    io_lst = ['input_file', 'roc_path', 'pr_path','out_path']
-    io_dic = dict(zip(io_lst, configs['io'].values()))
-    
+    # 'input_file', 'roc_path', 'pr_path','out_path']
+    io_dic = configs['io']
+    x_cols = configs['x_cols']
+    y_col = configs['y_col']
+    time_col = configs['time_col']
+    # 'start_year', 'end_year', 'update_period', 'test_period'
+    time_dic = configs['time']
+    percentage = configs['percentage']
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
