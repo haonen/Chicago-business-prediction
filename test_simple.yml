@@ -25,3 +25,5 @@ time:
   end_year: 2018
   update_period: 2
   test_period:2
+
+percentage: 30
