@@ -1,8 +1,5 @@
 io:
   input_path: "../data/full_dataset.csv"
-  roc_path: "../output/roc/"
-  pr_path: "../output/pr/"
-  out_path: "../output/performance/"
 
 cols:
   x_cols:  ['gini index', 'health coverage population per capita', 'median household income', 'poverty rate per capita',
@@ -70,3 +67,11 @@ time:
 matrix:
   percentage: 30
   list_matrix: []
+  col_list: ['model_name', 'parameters', 'baseline', 'accuarcy', 'f1',
+             'auc_roc', 'precision_1%', 'recall_1%', 'precision_2%',
+             'recall_2%', 'precision_5%', 'recall_5%', 'precision_10%',
+             'recall_10%', 'precision_20%','recall_20%', 'precision_30%',
+             'recall_30%', 'precision_50%', 'recall_50%']
+  roc_path: "../output/roc/"
+  pr_path: "../output/pr/"
+  out_path: "../output/performance/"
