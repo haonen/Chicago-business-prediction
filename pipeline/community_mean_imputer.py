@@ -89,6 +89,12 @@ class community_mean_imputer:
                         self.trained_imp[(loc, year)] = {}
                     self.trained_imp[(loc, year)][col] = df.loc[condition, col].mean()
 
+        #updated_missing_dict = summarize_missing_values(df)
+        #for column, values in updated_missing_dict.items():
+        #    if values[0] != 0:
+        #        df.loc[df[column].isnull(), column] = df[column].mean()
+        #        self.trained_imp[(loc, year)][col] = df.loc[column].mean()
+
         return df
 
     def transform_test(self, test_df, loc_column, time_column):
@@ -109,13 +115,4 @@ class community_mean_imputer:
                 for year in list(test_df[time_column].unique()):
                     condition = ((test_df[column].isnull()) & (test_df[loc_column] == loc) & (
                                 test_df[time_column] == year))
-                    test_df.loc[condition, column] = self.trained_imp[(loc, year - 2)][column]
-
-            '''
-            for loc_year, col_dict in self.trained_imp.items():
-                loc, year = loc_year
-                condition = ((test_df[column].isnull()) & (test_df[loc_column] == loc)) #& (test_df[time_column] == year))
-                test_df.loc[condition, column] = col_dict[column]
-            '''
-
-        return test_df
+                    test_df.loc[condition, column] = self.trained_imp[(loc, year - 4)][column]
