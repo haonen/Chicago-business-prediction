@@ -7,7 +7,7 @@ import pandas as pd
 import logging
 import sys
 import os
-
+import gc
 
 logger = logging.getLogger('get dummy')
 ch = logging.StreamHandler(sys.stdout)
@@ -34,6 +34,7 @@ def get_all_dummies(X_train, X_test, colname):
     for cat in cat_list:
         X_test[cat] = np.where(X_test[colname] == cat, 1, 0)
         X_train[cat] = np.where(X_train[colname] == cat, 1, 0)
+    gc.collect()
 
 
 def get_top_k_dummies(X_train, X_test, colname, k):
@@ -59,6 +60,7 @@ def get_top_k_dummies(X_train, X_test, colname, k):
         lambda x: 0 if x[colname] in top_k else 1, axis=1)
     X_test['{}_others'.format(colname)] = X_test.apply(
         lambda x: 0 if x[colname] in top_k else 1, axis=1)
+    gc.collect()
 
 
 def get_dummies(X_train, X_test, colname, k):
@@ -79,6 +81,7 @@ def get_dummies(X_train, X_test, colname, k):
     if num_cat <= k or colname=='zip code':
         get_all_dummies(X_train, X_test, colname)
     else:
-         get_top_k_dummies(X_train, X_test, colname, k)       
+         get_top_k_dummies(X_train, X_test, colname, k)          
     return X_train.drop(columns=[colname]), X_test.drop(columns=[colname])
+  
 
