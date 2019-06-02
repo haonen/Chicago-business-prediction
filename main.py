@@ -64,7 +64,7 @@ def run(config):
                y_pred_probs = model.predict_proba(X_test)[:, 1]
             results_df = pd.DataFrame(columns=matrix_configs['col_list'])
             index = len(results_df)
-            results_df.loc[index] = get_matrix(results_df, y_pred_probs, y_test, name, model, count, matrix_configs)
+            results_df.loc[index] = get_matrix(results_df, y_pred_probs, y_test, name, model, count,index, matrix_configs)
         results_df.to_csv(matrix_configs['out_path'] + str(count) + ".csv")
         count += 1
 
