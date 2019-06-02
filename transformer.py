@@ -7,6 +7,7 @@ import logging
 import sys
 import numpy as np
 import argparse
+import gc
 from pipeline.get_dummy import *
 from pipeline.community_mean_imputer import *
 from pipeline.minmax_scaler import *
@@ -55,4 +56,5 @@ def transform(config,X_train,X_test):
     #get dummies
     for col in dummies_cols:
         X_train, X_test = get_dummies(X_train, X_test, col, k)
+    gc.collect()
     return X_train, X_test
