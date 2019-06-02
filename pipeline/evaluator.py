@@ -151,6 +151,7 @@ def plot_precision_recall_n(y_true, y_prob, name, save_name, output_type):
     plt.title(name)
     if (output_type == 'save'):
         plt.savefig(save_name)
+        plt.close()
     elif (output_type == 'show'):
         plt.show()
     else:
