@@ -61,6 +61,10 @@ models:
     C: [1]
     penalty: ["l2"]
     max_iter: [500]
+  KNeighborsClassifier:
+    n_neighbors: [1,5,10]
+    weights: ['distance']
+    algorithm: ['auto']
   
 time:
   start_year: 2009
