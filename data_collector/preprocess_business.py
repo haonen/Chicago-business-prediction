@@ -96,20 +96,6 @@ def concat_and_pivot(min_year, max_year)
             crime_data = pd.concat([crime_data, df])
     return crime_data.rename(columns={'zip': 'zip_code'})
 
-#The following code are used for mergeing 311, acs and crime into business license
-#merge_data = pd.merge(concat_license, acs, how='left', on=['year', 'zip_code'])
-#merge_data = pd.merge(merge_data, data311, how='left', on=['year', 'zip_code'])
-#merge_data = pd.merge(merge_data, crime_data, how='left', on=['year', 'zip_code'])
-
-#These code is used for imputate the vacancy in same_house varible of acs 2013
-#sub_2012 = df[df["year"] == 2012][["zip_code", "same_house"]]
-#sub_2013 = df[df["year"] == 2013]
-#full = pd.merge(sub_2012, sub_2013, left_on="zip_code", right_on="zip_code")
-#full = full[full.columns.remove("same_house_x")]
-
-#df = df[df["year"] != 2013]
-#df = pd.concat([full, df], join="inner")
-
 
 def create_outcome(df, outcome, date_issued, change_date, expiration_date):
     '''
@@ -144,13 +130,6 @@ def rename_cols(df):
         ncol = ncol.replace('_', ' ')
         df = df.rename(columns={col: ncol})
     return df
-
-
-
-def run(args):
-    #aggreate all above here
-    
-
 
 
 if __name__ == "__main__":
