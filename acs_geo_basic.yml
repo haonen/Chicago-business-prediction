@@ -1,8 +1,5 @@
 io:
-  input_path: "./data/full_dataset.csv"
-  roc_path: "./output/roc/"
-  pr_path: "./output/pr/"
-  out_path: "./output/performance.csv"
+  input_path: "../data/full_dataset.csv"
 
 cols:
   x_cols:  ['gini index', 'health coverage population per capita', 'median household income', 'poverty rate per capita',
@@ -30,7 +27,6 @@ models:
   DecisionTreeClassifier:
     criterion: ['gini']
     max_depth: [1]
-    max_features: [None]
     min_samples_split: [2]
   RandomForestClassifier:
     n_estimators: [100]
@@ -46,9 +42,8 @@ models:
     min_samples_split: [2]
     n_jobs: [-1]
   LogisticRegression:
-    C: [0.1]
-    penality: ["l2"]
-    n_jobs: [-1]
+    penalty: ['l1']
+    C: [1]
   BaggingClassifier:
     n_estimators: [1]
   GradientBoostingClassifier:
@@ -60,16 +55,25 @@ models:
     algorithm: ['SAMME']
     n_estimators: [1]
   GaussianNB:
-    priors: [None]
   LinearSVC:
-    C: [1]
-    penalty: ["l2"]
+    C: [0.00001]
+    penalty: ["l1"]
     max_iter: [500]
   
 time:
   start_year: 2009
   end_year: 2018
   update_period: 2
-  test_period: 2
-  
-percentage: 30
+  test_period:2
+
+
+matrix:
+  percentage: 30
+  col_list: ['model_name', 'parameters', 'baseline', 'accuarcy', 'f1',
+             'auc_roc', 'precision_1%', 'recall_1%', 'precision_2%',
+             'recall_2%', 'precision_5%', 'recall_5%', 'precision_10%',
+             'recall_10%', 'precision_20%','recall_20%', 'precision_30%',
+             'recall_30%', 'precision_50%', 'recall_50%']
+  roc_path: "../output/roc/"
+  pr_path: "../output/pr/"
+  out_path: "../output/performance/"
