@@ -11,16 +11,12 @@ from pipeline.get_dummy import *
 from pipeline.community_mean_imputer import *
 from pipeline.minmax_scaler import *
 
-import pdb
 
 logger = logging.getLogger('start to transform the data')
 ch = logging.StreamHandler(sys.stdout)
-#fh = logging.FileHandler('./log/debug.log')
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
-#fh.setFormatter(formatter)
 logger.addHandler(ch)
-#logger.addHandler(fh)
 logger.setLevel(logging.INFO)
 
 def transform(config,X_train,X_test):

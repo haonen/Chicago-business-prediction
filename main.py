@@ -24,16 +24,12 @@ from pipeline import model_factory
 from pipeline import evaluator
 import transformer
 import pandas as pd
-import pdb
 
 logger = logging.getLogger('main function')
 ch = logging.StreamHandler(sys.stdout)
-#fh = logging.FileHandler('../log/debug.log')
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
-#fh.setFormatter(formatter)
 logger.addHandler(ch)
-#logger.addHandler(fh)
 logger.setLevel(logging.INFO)
 
 

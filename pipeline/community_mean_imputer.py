@@ -5,7 +5,7 @@ import sys
 import os
 
 
-logger = logging.getLogger('main function')
+logger = logging.getLogger('imputor')
 ch = logging.StreamHandler(sys.stdout)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
