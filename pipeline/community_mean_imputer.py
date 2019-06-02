@@ -1,6 +1,16 @@
 import pandas as pd
 import numpy as np
+import logging
+import sys
+import os
 
+
+logger = logging.getLogger('main function')
+ch = logging.StreamHandler(sys.stdout)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+ch.setFormatter(formatter)
+logger.addHandler(ch)
+logger.setLevel(logging.INFO)
 
 def summarize_missing_values(df):
     '''

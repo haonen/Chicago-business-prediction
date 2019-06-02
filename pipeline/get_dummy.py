@@ -4,6 +4,17 @@ Get the dummies in the features generation stage
 
 import numpy as np
 import pandas as pd
+import logging
+import sys
+import os
+
+
+logger = logging.getLogger('main function')
+ch = logging.StreamHandler(sys.stdout)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+ch.setFormatter(formatter)
+logger.addHandler(ch)
+logger.setLevel(logging.INFO)
 
 
 def get_all_dummies(X_train, X_test, colname):
@@ -62,8 +73,9 @@ def get_dummies(X_train, X_test, colname, k):
        Create dummies in both train and test set
     '''
     # Decide whether this use get all dummies or top k
+    logger.info("get dummy for {}".format(colname))
     num_cat = len(X_train[colname].value_counts())
-    print(num_cat)
+    
     if num_cat <= k or colname=='zip code':
         get_all_dummies(X_train, X_test, colname)
     else:
