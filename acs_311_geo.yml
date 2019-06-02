@@ -85,4 +85,4 @@ matrix:
              'recall_30%', 'precision_50%', 'recall_50%']
   roc_path: "../output/roc/acs_311_geo/"
   pr_path: "../output/pr/acs_311_geo/"
-  out_path: "../output/performance/acs_311_geo"
+  out_path: "../output/performance/acs_311_geo/"
