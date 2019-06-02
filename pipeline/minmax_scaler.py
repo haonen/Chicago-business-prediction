@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import gc
 from sklearn.preprocessing import MinMaxScaler
 
 
@@ -20,5 +21,5 @@ def min_max_transformation(train_df, test_df, continuous_columns):
     test_df = test_df.drop(continuous_columns, axis=1).reset_index(drop=True)
     train_df = train_df.join(pd.DataFrame(data=train_df_cont, columns=continuous_columns))
     test_df = test_df.join(pd.DataFrame(data=test_df_cont,columns=continuous_columns))
-
+    gc.collect()
     return train_df, test_df
