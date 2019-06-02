@@ -57,6 +57,10 @@ models:
     C: [0.00001,0.0001,0.001,0.01,0.1,1,10]
     penalty: ["l1", "l2"]
     max_iter: [500]
+  KNeighborsClassifier:
+    n_neighbors: [1,5,10]
+    weights: ['distance']
+    algorithm: ['auto']
   
 time:
   start_year: 2009
@@ -72,6 +76,6 @@ matrix:
              'recall_2%', 'precision_5%', 'recall_5%', 'precision_10%',
              'recall_10%', 'precision_20%','recall_20%', 'precision_30%',
              'recall_30%', 'precision_50%', 'recall_50%']
-  roc_path: "../output/roc/"
-  pr_path: "../output/pr/"
-  out_path: "../output/performance/"
+  roc_path: "../output/roc/acs_geo/"
+  pr_path: "../output/pr/acs_geo/"
+  out_path: "../output/performance/acs_geo/"
