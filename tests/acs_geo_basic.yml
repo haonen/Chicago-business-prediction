@@ -20,6 +20,10 @@ transform:
     cols: ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
 
 models:
+  KNeighborsClassifier:
+    n_neighbors: [1]
+    weights: ['distance']
+    algorithm: ['auto']
   DecisionTreeClassifier:
     criterion: ['gini']
     max_depth: [1]
