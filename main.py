@@ -24,6 +24,10 @@ from pipeline import model_factory
 from pipeline import evaluator
 import transformer
 import pandas as pd
+import gc
+#from memory_profiler import profile
+#from contextlib import contextmanager
+
 
 logger = logging.getLogger('main function')
 ch = logging.StreamHandler(sys.stdout)
@@ -31,7 +35,6 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 ch.setFormatter(formatter)
 logger.addHandler(ch)
 logger.setLevel(logging.INFO)
-
 
 def run(config):
     logger.info("starting to run the pipeline")
@@ -55,12 +58,15 @@ def run(config):
         for name, model in model_factory.get_models(model_configs):
             logger.info('start to run the model {}'.format(model))
             model.fit(X_train, y_train)
+            print(sys.getsizeof(model))
             if name == 'LinearSVC':
                y_pred_probs = model.decision_function(X_test)
             else:
                y_pred_probs = model.predict_proba(X_test)[:, 1]
             index = len(results_df)
             results_df.loc[index] = get_matrix(results_df, y_pred_probs, y_test, name, model, count,index, matrix_configs)
+            del model
+            gc.collect()
         results_df.to_csv(matrix_configs['out_path'] + str(count) + ".csv")
         count += 1
 
@@ -85,7 +91,7 @@ def get_matrix(results_df, y_pred_probs, y_test, name, model, count, index, matr
     # Write the evaluation results into data frame
     threshold = matrix_configs['percentage']
     record = [name, str(model),
-	          evaluator.precision_at_k(y_test_sorted, y_pred_probs_sorted, 100),
+              evaluator.precision_at_k(y_test_sorted, y_pred_probs_sorted, 100),
               evaluator.compute_acc(y_test_sorted, y_pred_probs_sorted, threshold),
               evaluator.compute_f1(y_test_sorted, y_pred_probs_sorted, threshold),
               evaluator.compute_auc_roc(y_test_sorted, y_pred_probs_sorted, threshold)]
