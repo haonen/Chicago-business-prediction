@@ -2,9 +2,18 @@ io:
   input_path: "../data/full_dataset.csv"
 
 cols:
-  x_cols:  ['gini index', 'health coverage population per capita', 'median household income', 'poverty rate per capita',
-            'same house per capita', 'total population', 'unemployment rate', 'duration', 'application type',
-            'conditional approval', 'license description', 'zip code', 'ward', 'year']
+  x_cols: ['gini index', 'health coverage population per capita', 'median household income', 'poverty rate per capita',
+          'same house per capita', 'total population', 'unemployment rate', 'abandoned vehicles completion rate',
+          'abandoned vehicles per capita', 'alley lights out completion rate', 'alley lights out per capita',
+          'garbage carts completion rate', 'garbage carts per capita', 'graffiti removal completion rate',
+          'graffiti removal per capita', 'rodent baiting completion rate', 'rodent baiting per capita',
+          'sanitation code complaints completion rate', 'sanitation code complaints per capita',
+          'street lights - all out completion rate', 'street lights - all out per capita', 'street lights - one out completion rate',
+          'street lights - one out per capita', 'tree debris completion rate', 'tree debris per capita',
+          'tree trims completion rate', 'tree trims per capita', 'arson per capita', 'assault per capita', 'battery per capita',
+          'burglary per capita', 'crim sexual assault per capita', 'homicide per capita', 'motor vehicle theft per capita',
+          'robbery per capita', 'theft per capita', 'duration', 'application type', 'conditional approval', 'license description',
+          'zip code', 'ward']
   y_col: ["license death"]
   time_col: ["year"]
 
