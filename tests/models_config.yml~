@@ -1,4 +1,0 @@
-models:
-  LinearSVC:
-    c: [0.1,1]
-    penalty: ["l2"]
