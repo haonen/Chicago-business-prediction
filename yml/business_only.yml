@@ -2,9 +2,7 @@ io:
   input_path: "../data/full_dataset.csv"
 
 cols:
-  x_cols:  ['gini index', 'health coverage population per capita', 'median household income', 'poverty rate per capita',
-            'same house per capita', 'total population', 'unemployment rate', 'duration', 'application type',
-            'conditional approval', 'license description', 'zip code', 'ward', 'year']
+  x_cols:  ['duration', 'application type', 'conditional approval', 'license description', 'zip code', 'ward', 'year']
   y_col: ["license death"]
   time_col: ["year"]
 
