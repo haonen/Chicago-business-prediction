@@ -1,5 +1,5 @@
 '''
-spliter the dataframe based on the time information.
+transform  dataframe 
 '''
 from collections import OrderedDict
 from itertools import product

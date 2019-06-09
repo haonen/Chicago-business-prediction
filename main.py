@@ -11,7 +11,6 @@ from sklearn.ensemble import AdaBoostClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import LinearSVC
-
 import yaml
 from collections import OrderedDict
 from itertools import product
@@ -25,8 +24,6 @@ from pipeline import evaluator
 import transformer
 import pandas as pd
 import gc
-#from memory_profiler import profile
-#from contextlib import contextmanager
 
 
 logger = logging.getLogger('main function')
@@ -37,13 +34,18 @@ logger.addHandler(ch)
 logger.setLevel(logging.INFO)
 
 def run(config):
+    '''
+    run the pipeline and save the result to csv file as well as graphs
+
+    Input:
+        config: yml file contains all the parameters of the pipeline
+    Return:
+        save the results to the file
+    '''
     logger.info("starting to run the pipeline")
-    #pdb.set_trace()
-    #config = args.config
+    config = args.config
     with open (config) as config_file:
         configs = yaml.safe_load(config_file)
-    #'input_file', 'roc_path', 'pr_path','out_path'
-
     df = pd.read_csv(configs['io']['input_path'])
     cols_config = configs['cols']
     time_config = configs['time']
@@ -71,6 +73,16 @@ def run(config):
         count += 1
 
 def split(cols_config, time_config, df):
+    '''
+    split the dataset based on the time
+    
+    Input: 
+        cols_config: xs and y
+        time_config: start time, end time, time window
+        df : dataframe 
+
+    return: 4 dataframes
+    '''
     logger.info('starging to split the dataframe')
     X = df[cols_config['x_cols']]
     y = df[cols_config['y_col'][0]]
@@ -86,6 +98,19 @@ def split(cols_config, time_config, df):
 
 
 def get_matrix(results_df, y_pred_probs, y_test, name, model, count, index, matrix_configs):
+    '''
+    calculate the evaluation matrixs
+ 
+    Input:
+        results_df: used to store the result
+        y_pred_probs: get the score from the model
+        y_test: true y
+        name: model's name
+        model: model obj
+        count: number of train test set
+    Return:
+        one row of record for the result dataframe 
+    '''
     # Sort true y labels and predicted scores at the same time
     y_pred_probs_sorted, y_test_sorted = zip(*sorted(zip(y_pred_probs, y_test), reverse=True))
     # Write the evaluation results into data frame
@@ -100,15 +125,11 @@ def get_matrix(results_df, y_pred_probs, y_test, name, model, count, index, matr
     for t in threshold_list:
     	record.append(evaluator.precision_at_k(y_test_sorted, y_pred_probs_sorted, t))
     	record.append(evaluator.recall_at_k(y_test_sorted, y_pred_probs_sorted, t))
-
     graph_name_pr = matrix_configs['pr_path'] + r'''precision_recall_curve_{}_{}_{}'''.format(name,count,index)
-    #pdb.set_trace()
     evaluator.plot_precision_recall_n(y_test, y_pred_probs, str(model), graph_name_pr, 'save')
     graph_name_roc = matrix_configs['roc_path'] + r'''roc_curve__{}_{}_{}'''.format(name,count,index)
     evaluator.plot_roc(str(model), graph_name_roc, y_pred_probs, y_test, 'save')
-
     return record
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Do a simple machine learning pipeline, load data, split the data, transform data, build models, run models, get the performace matix results')
