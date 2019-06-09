@@ -14,10 +14,19 @@ sh get_fullfiles.sh
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+
+All the packages' requirement is in the enviorment.yml
+
+To clone the enviorment, simply run the following:
 
 ```
-Give examples
+conda env create -f environment.yml
+```
+
+To activate the enviorment, simply run the following:
+
+```
+conda activate myenv
 ```
 
 ### Installing
