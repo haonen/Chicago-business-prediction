@@ -4,19 +4,13 @@ Implement a machine learning pipeline to predict whether business will survive t
 
 ## Getting Started
 
-Get the full dataset 
+Get the full dataset
+ 
 ```
 cd data
 sh get_fullfiles.sh
 
 ```
-
-Get 
-
-
-
-
-
 
 ### Prerequisites
 

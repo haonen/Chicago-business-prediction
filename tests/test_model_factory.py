@@ -1,13 +1,12 @@
 '''
-
 test code for the model_factory.py
-
 '''
 from collections import OrderedDict
 import unittest
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 from pipeline import model_factory as fa
+import pdb
 
 ONE_DICT = {'LinearSVC': {'C': [0.1], 'penalty': ['l2']}}
 MANY_DICT =  {'LinearSVC': {'C': [0.1, 1], 'penalty': ['l2']},
