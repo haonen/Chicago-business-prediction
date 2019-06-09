@@ -7,7 +7,6 @@ from collections import OrderedDict
 import unittest
 import transformer
 import pandas as pd
-import pdb
 
 CONFIG = {
               'dummy':{
@@ -22,8 +21,7 @@ CONFIG = {
                 {'cols': ['theft']}
            } 
 
-TEST_FILE = '../data/test0.csv'
-TRAIN_FILE = '../data/train0.csv'
+TEST_FILE = '../data/full_dataset.csv'
 
 class TestTransformer(unittest.TestCase):
     '''
