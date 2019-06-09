@@ -20,7 +20,6 @@ import sys
 import numpy as np
 import argparse
 import os
-import pdb
 
 logger = logging.getLogger('generating models')
 ch = logging.StreamHandler(sys.stdout)
