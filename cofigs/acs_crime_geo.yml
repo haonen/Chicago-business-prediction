@@ -6,20 +6,20 @@ cols:
            'same house per capita', 'total population', 'unemployment rate', 'arson per capita', 'assault per capita',
            'battery per capita', 'burglary per capita', 'crim sexual assault per capita', 'homicide per capita',
            'motor vehicle theft per capita', 'robbery per capita', 'theft per capita', 'duration', 'application type',
-           'conditional approval', 'license description', 'zip code', 'ward']
+           'conditional approval', 'license description', 'zip code', 'ward', 'year']
   y_col: ["license death"]
   time_col: ["year"]
 
 transform:
   dummy:
-    - cols : ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
-    - k: [30]
+    cols : ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
+    k: [30]
   imputation: 
-    - cols:  ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
-    - loc_col: ["ward"]
-    - time_col: ["year"]
+    cols:  ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
+    loc_col: ["ward"]
+    time_col: ["year"]
   scaling:
-    - cols: ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
+    cols: ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
 
 models:
   DecisionTreeClassifier:
