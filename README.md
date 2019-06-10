@@ -60,7 +60,7 @@ Under the roc foler, there would be roc graphs
 
 ## Authors
 
-* **Peng Wei**  [CV](pengwei.work)
+* **Peng Wei**  [CV](https://pengwei715.github.io/)
 * **Yuwei Zhang**  [Linkedin](https://www.linkedin.com/in/yuwei-zhang-b3b597102/)
 * **Ta-yun Yang**  [linkedin](https://www.linkedin.com/in/ta-yun-yang-9a3539171/)
 * **Xuan Bu**  [linkedin](https://www.linkedin.com/in/xuanbu/)
