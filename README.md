@@ -1,6 +1,6 @@
-# Chicago-Boom
+# Chicago-business-prediction
 
-Implement a machine learning pipeline to predict whether business will survive their first 2 years 
+Implement a machine learning pipeline to predict whether the business in Chicago will survive their first 2 years 
 
 ## Getting Started
 
@@ -31,12 +31,8 @@ conda activate myenv
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
 ```
-Give the example
+python install setup.py
 ```
 
 And repeat
