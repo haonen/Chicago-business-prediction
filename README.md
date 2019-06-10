@@ -1,6 +1,18 @@
 # Chicago-business-prediction
 
-Implement a machine learning pipeline to predict whether the business in Chicago will survive their first 2 years 
+Implement a machine learning pipeline to priorize the business licenses that are likely to die in 2 years in Chicago.
+
+The full project report can be found [here](https://drive.google.com/a/uchicago.edu/file/d/1NLHlREFRioDvy4RXcORt5rwpzddIeetA/view?usp=sharing)
+
+## Pipelines
+* ```cofigs```: a folder contains the configure files of different combinations of features. We use them to pass all the parameters that we need into pipelines.   
+* ```data```: contains an sh file to download the cleaned full data set.   
+* ```data_collector```: a folder contains all the code we use to collect and clean data.   
+* ```output```: a folder to save the results of our pipeline, including performance table, precision and recall curve plots and AUC-ROC curve plots.   
+* ```pipeline```: contains the modules of imputation, evaluation, discretization, get dummies and scaling.   
+* ```tests```: a set of test code for our piepline.   
+* ```main.py```: the main function to run models and get results.   
+* ```transformer.py```: the function to preprocess data set before modeling.   
 
 ## Getting Started
 
@@ -58,6 +70,11 @@ Under the pr folder, there would be precison-recall graphs
 
 Under the roc foler, there would be roc graphs
 
+## Additional materials
+* [temporal validation table](https://drive.google.com/a/uchicago.edu/file/d/1jQ9wZKCAliO6Ibg5McQ28BSvFOGrgiRN/view?usp=sharing)
+* [feature list](https://docs.google.com/spreadsheets/d/1XEcMPa9SfWi0rUXY8ytfh5Jrqg-YI2ES4oPsTkODm1E/edit?usp=sharing)
+* [feature importance of the best model](https://drive.google.com/a/uchicago.edu/file/d/1ipv4gyi4jyJ3FtJfF_snqXp2cpmJ1NAd/view?usp=sharing)
+* [final list of the best model](https://drive.google.com/a/uchicago.edu/file/d/1SZ1MD0Vxceh2FCYSbM6cm2zVQc37uLEl/view?usp=sharing)
 ## Authors
 
 * **Peng Wei**  [CV](https://pengwei715.github.io/)
