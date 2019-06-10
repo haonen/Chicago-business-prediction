@@ -10,14 +10,14 @@ cols:
 
 transform:
   dummy:
-    - cols : ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
-    - k: [30]
+    cols : ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
+    k: [30]
   imputation: 
-    - cols:  ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
-    - loc_col: ["ward"]
-    - time_col: ["year"]
+    cols:  ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
+    loc_col: ["ward"]
+    time_col: ["year"]
   scaling:
-    - cols: ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
+    cols: ['application type', 'conditional approval', 'license description', 'zip code', 'ward']
 
 models:
   DecisionTreeClassifier:
