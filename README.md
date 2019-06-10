@@ -48,16 +48,23 @@ python main.py --config ./cofigs/acs_geo.yml
 In the configs file, there are different combination of features that from ACS, reported 311, reported Crime, business license that you can choose.
 
 
-## Contributing
+## Getting results
 
-Please read [CONTRIBUTING.md]() for details on our code of conduct, and the process for submitting pull requests to us.
+The results of the pipeline is saved in the output folder. 
 
+Under the performance foler, there would be csvs to keep all the performance of all models
+
+Under the pr folder, there would be precison-recall graphs
+
+Under the roc foler, there would be roc graphs
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Peng Wei**  [CV](pengwei.work)
+* **Yuwei Zhang**  [Linkedin](https://www.linkedin.com/in/yuwei-zhang-b3b597102/)
+* **Ta-yun Yang**  [linkedin](https://www.linkedin.com/in/ta-yun-yang-9a3539171/)
+* **Xuan Bu**  [linkedin](https://www.linkedin.com/in/xuanbu/)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
@@ -65,6 +72,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Satej 
-* Inspiration
-* etc
+This project is the final project of machine learning for public policy in University of Chicago.  
+
+* Supervised by Professor [Rayid Ghani](https://github.com/dssg/MLforPublicPolicy) 
+* Inspired by [Satej](https://github.com/satejsoman) 
