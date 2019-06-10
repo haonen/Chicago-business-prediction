@@ -62,8 +62,8 @@ Under the roc foler, there would be roc graphs
 
 * **Peng Wei**  [CV](https://pengwei715.github.io/)
 * **Yuwei Zhang**  [Linkedin](https://www.linkedin.com/in/yuwei-zhang-b3b597102/)
-* **Ta-yun Yang**  [linkedin](https://www.linkedin.com/in/ta-yun-yang-9a3539171/)
-* **Xuan Bu**  [linkedin](https://www.linkedin.com/in/xuanbu/)
+* **Ta-yun Yang**  [Linkedin](https://www.linkedin.com/in/ta-yun-yang-9a3539171/)
+* **Xuan Bu**  [Linkedin](https://www.linkedin.com/in/xuanbu/)
 
 
 ## License
