@@ -9,7 +9,6 @@ Get the full dataset
 ```
 cd data
 sh get_fullfiles.sh
-
 ```
 
 ### Prerequisites
@@ -32,16 +31,8 @@ conda activate myenv
 ### Installing
 
 ```
-python install setup.py
+python setup.py install
 ```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
